@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "@/assets/images/logo.png";
+import logo from "/logo.svg";
 import { fadeUp, staggerContainer, baseViewport } from "@/lib/animations";
 import BackgroundParticles from "@/components/ui/background-particles";
 

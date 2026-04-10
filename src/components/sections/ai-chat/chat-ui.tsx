@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import BackgroundParticles from "@/components/ui/background-particles";
 import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { AppStoreLink } from "@/components/ui/app-store-link";
 
 const AiChatSection = () => {
   const features = [
@@ -77,20 +78,11 @@ const AiChatSection = () => {
         delay={0.6}
         className="text-center mt-12 md:mt-16 relative z-10"
       >
-        <Button
-          asChild
-          variant="primary"
-          size="lg"
+        <AppStoreLink
           className="px-6 py-4 md:px-8 md:py-6 body-lg !text-base md:!text-lg rounded-full shadow-xl shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none"
         >
-          <a
-            href="https://play.google.com/store/apps/details?id=com.waytree.app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Try AI Chat
-          </a>
-        </Button>
+          Try AI Chat
+        </AppStoreLink>
       </ScrollCard>
     </SectionWrapper>
   );

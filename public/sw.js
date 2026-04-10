@@ -5,7 +5,7 @@ const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/vite.svg',
-  '/src/assets/images/logo.png',
+  '/logo.svg',
   '/src/assets/images/background.png',
   '/src/assets/images/hero-mobile.png'
 ];

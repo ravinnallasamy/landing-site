@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BaseSection } from "@/components/layout/base-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
+import { AppStoreLink } from "@/components/ui/app-store-link";
 
 const steps = [
   {
@@ -108,20 +109,11 @@ const HowItWorks = () => (
           
           <div className="inline-block relative">
             <div className="absolute -inset-6 bg-amber-400/20 blur-3xl rounded-full -z-10 animate-pulse" />
-            <Button
-              asChild
-              variant="primary"
-              size="lg"
+            <AppStoreLink
               className="px-8 py-6 md:px-12 md:py-10 body-lg !text-xl md:!text-2xl rounded-full shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none relative z-10"
             >
-              <a
-                href="https://play.google.com/store/apps/details?id=com.waytree.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start Free Trial
-              </a>
-            </Button>
+              Start Free Trial
+            </AppStoreLink>
           </div>
         </ScrollCard>
       </div>

@@ -5,6 +5,7 @@ import AnimatedImage from "@/components/ui/animated-image";
 import { GlassCard } from "@/components/ui/glass-card";
 import { hoverScale } from "@/lib/animations";
 import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
+import { AppStoreLink } from "@/components/ui/app-store-link";
 
 const CtaSection = () => {
   const navigate = useNavigate();
@@ -55,21 +56,11 @@ const CtaSection = () => {
             {/* CTA Buttons */}
             <StaggerGroup className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16">
               <ScrollCard animation="fadeUp">
-                <Button
-                  asChild
-                  variant="primary"
-                  size="lg"
-                  className="shadow-soft hover:shadow-strong body-lg !text-base md:!text-lg w-full sm:w-auto px-8 py-6 rounded-full"
+                <AppStoreLink
+                  className="shadow-soft hover:shadow-strong body-lg !text-base md:!text-lg w-full sm:w-auto px-8 py-6 rounded-full transition-transform hover:scale-105"
                 >
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.waytree.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-transform hover:scale-105"
-                  >
-                    Get Started Now
-                  </a>
-                </Button>
+                  Get Started Now
+                </AppStoreLink>
               </ScrollCard>
 
               <ScrollCard animation="fadeUp">

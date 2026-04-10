@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/images/logo.png";
+import logo from "/logo.svg";
 import { Button } from "@/components/ui/button";
+import { AppStoreLink } from "@/components/ui/app-store-link";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -79,8 +80,8 @@ const Navbar = () => {
                 to={link.to}
                 className={`body-md !text-sm transition-all px-4 py-2 rounded-lg 
                   ${isDarkArea 
-                    ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-white bg-white/20' : ''}`
-                    : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-gray-900 bg-white/60 shadow-sm' : ''}`
+                    ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-emerald-400 bg-emerald-500/20 shadow-xl shadow-emerald-500/50' : ''}`
+                    : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-emerald-600 bg-emerald-50 shadow-xl shadow-emerald-500/40' : ''}`
                   }
                 `}
               >
@@ -90,20 +91,11 @@ const Navbar = () => {
           })}
           
           {/* Get Started Button */}
-          <Button
-            asChild
-            variant="primary"
-            size="sm"
+          <AppStoreLink
             className="bg-amber-500 hover:bg-amber-600 text-white body-md !text-sm !font-semibold rounded-full px-5 py-2 transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
           >
-            <a
-              href="https://play.google.com/store/apps/details?id=com.waytree.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Started
-            </a>
-          </Button>
+            Get Started
+          </AppStoreLink>
         </div>
 
         {/* Mobile Menu Button */}
@@ -141,8 +133,8 @@ const Navbar = () => {
                     onClick={() => setOpen(false)}
                     className={`body-md !text-sm transition-all px-4 py-3 rounded-lg block text-left
                       ${isDarkArea 
-                        ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-white bg-white/20' : ''}`
-                        : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-gray-900 bg-white/60 shadow-sm' : ''}`
+                        ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-emerald-400 bg-emerald-500/20 shadow-xl shadow-emerald-500/50' : ''}`
+                        : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-emerald-600 bg-emerald-50 shadow-xl shadow-emerald-500/40' : ''}`
                       }
                     `}
                   >
@@ -153,21 +145,12 @@ const Navbar = () => {
               
               {/* Mobile Get Started Button */}
               <div className="pt-4">
-                <Button
-                  asChild
-                  variant="primary"
-                  size="sm"
+                <AppStoreLink
                   className="w-full bg-amber-500 hover:bg-amber-600 text-white body-md !text-sm !font-semibold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
+                  onClick={() => setOpen(false)}
                 >
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.waytree.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                  >
-                    Get Started
-                  </a>
-                </Button>
+                  Get Started
+                </AppStoreLink>
               </div>
             </div>
           </motion.div>
