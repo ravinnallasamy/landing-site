@@ -61,7 +61,7 @@ const HowItWorks = () => (
         <div className="relative order-1 lg:order-2 pl-0 md:pl-4">
           {/* Animated vertical connection line */}
           <ScrollCard
-            className="absolute left-[20px] sm:left-[24px] md:left-[30px] lg:left-[40px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0 origin-top"
+            className="absolute left-[31.5px] sm:left-[35.5px] md:left-[43.5px] lg:left-[51.5px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0 origin-top"
             animation="growY"
           />
 
@@ -77,7 +77,7 @@ const HowItWorks = () => (
                   whileHover={{ scale: 1.1 }}
                   className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-white border-[2px] md:border-[3px] border-amber-400 shadow-[0_10px_30px_rgba(251,191,36,0.2)] transition-all group-hover:bg-amber-400 group-hover:shadow-[0_15px_40px_rgba(251,191,36,0.3)] z-10"
                 >
-                  <span className="text-accent headline-md !text-base sm:!text-lg md:!text-2xl lg:!text-3xl group-hover:text-white transition-colors">
+                  <span className="text-accent !text-base sm:!text-lg md:!text-2xl lg:!text-3xl font-bold leading-none group-hover:text-white transition-colors flex items-center justify-center">
                     {step.step}
                   </span>
                 </motion.div>

@@ -26,7 +26,7 @@ const CtaSection = () => {
           src={ctaImage}
           alt="Call to Action Background"
           variant="hover-lift"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-2xl"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-black/60 md:bg-black/50" />

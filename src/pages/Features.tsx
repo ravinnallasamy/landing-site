@@ -61,8 +61,8 @@ const Features = () => (
               <p className="body-md !text-muted-foreground mb-6 md:mb-8">{s.description}</p>
             </div>
             
-            <div className="relative py-6 md:py-10 lg:py-12 flex items-center justify-center overflow-hidden">
-              <div className="scale-90 sm:scale-100 md:scale-110 lg:scale-125">
+            <div className="relative py-4 md:py-6 flex items-center justify-center overflow-hidden">
+              <div className="scale-90 sm:scale-95 md:scale-100 lg:scale-105">
                 <CubeCard feature={s} showContent={false} />
               </div>
             </div>

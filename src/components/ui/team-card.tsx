@@ -41,7 +41,7 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-2xl"
             style={
               member.name === "Nagarajan" ? { objectPosition: 'center top' } : 
               member.name === "Tamilarasu" ? { objectPosition: 'center bottom' } : {}

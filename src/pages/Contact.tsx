@@ -92,7 +92,7 @@ const Contact = () => {
                       name="fullName"
                       type="text"
                       placeholder="e.g. Ram"
-                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
@@ -102,7 +102,7 @@ const Contact = () => {
                       name="userEmail"
                       type="email"
                       placeholder="Ram@gmail.com"
-                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                 </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                       name="company"
                       type="text"
                       placeholder="Ram Solutions"
-                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
@@ -122,7 +122,7 @@ const Contact = () => {
                     <div className="relative">
                       <select
                         name="subject"
-                        className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all appearance-none outline-none cursor-pointer"
+                        className="w-full bg-white/5 border border-white/5 rounded-2xl p-4 md:p-5 text-white focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all appearance-none outline-none cursor-pointer"
                       >
                         <option className="bg-[#051611] text-white" value="General Inquiry">General Inquiry</option>
                         <option className="bg-[#051611] text-white" value="Business Partnership">Business Partnership</option>
@@ -142,7 +142,7 @@ const Contact = () => {
                     name="message"
                     rows={6}
                     placeholder="Tell us about your networking goals..."
-                    className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none resize-none"
+                    className="w-full bg-white/5 border border-white/5 rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none resize-none"
                   />
                 </div>
 
@@ -194,7 +194,7 @@ const Contact = () => {
                     className="block group"
                   >
                     <GlassCard className="p-6 md:p-8 flex items-start gap-4 md:gap-6 border-emerald-500/10 group-hover:border-emerald-500/40 group-hover:bg-emerald-500/5 transition-all duration-500 cursor-pointer h-full" variant="primary">
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
                         <detail.icon className="text-emerald-600 w-6 h-6 md:w-7 md:h-7" />
                       </div>
                       <div className="text-left">

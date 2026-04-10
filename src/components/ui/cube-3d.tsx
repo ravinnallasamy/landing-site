@@ -19,11 +19,11 @@ const CubeCard = ({ feature, showContent = true }: CubeCardProps) => {
     <div ref={ref} className="relative group h-full">
       {isInView && (
         <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 animate-gpu-float">
-          <div className="absolute inset-0 rounded-lg md:rounded-xl overflow-hidden border border-white/10 shadow-xl bg-white">
+          <div className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-white">
             <img 
               src={feature.image} 
               alt={feature.title} 
-              className="w-full h-full object-cover opacity-90 transition-transform hover:scale-110 duration-500" 
+              className="w-full h-full object-cover rounded-2xl opacity-90 transition-transform hover:scale-110 duration-500" 
               loading="lazy"
             />
           </div>

@@ -21,9 +21,34 @@ const gradients = {
 };
 
 export const glass = {
-  primary: "bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg",
-  dark: "bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl",
-  light: "bg-white/80 backdrop-blur-md border border-gray-200 shadow-md",
+  primary: "bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg rounded-2xl",
+  dark: "bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl",
+  light: "bg-white/80 backdrop-blur-md border border-gray-200 shadow-md rounded-2xl",
+};
+
+export const shadows = {
+  sm: "shadow-sm",
+  md: "shadow-md",
+  lg: "shadow-lg",
+  xl: "shadow-xl",
+  "2xl": "shadow-2xl",
+  amber: "shadow-amber-500/20",
+  green: "shadow-green-900/20",
+  custom: {
+    soft: "shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+    strong: "shadow-[0_20px_40px_rgba(0,0,0,0.15)]",
+    amber: "shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)]",
+    green: "shadow-[0_48px_96px_-24px_rgba(0,0,0,0.15)]",
+  },
+};
+
+export const spacing = {
+  card: {
+    sm: "p-4",
+    md: "p-6",
+    lg: "p-8",
+    xl: "p-10",
+  },
 };
 
 const animations = {

@@ -97,7 +97,7 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
             src={src}
             alt={alt}
             loading={loading}
-            className="w-full h-full object-cover select-none"
+            className="w-full h-full object-cover select-none rounded-2xl"
             onLoad={() => setIsLoaded(true)}
             onError={() => setHasError(true)}
             style={{ 
@@ -127,7 +127,7 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
         src={src}
         alt={alt}
         loading={loading}
-        className="w-full h-full object-cover rounded-xl"
+        className="w-full h-full object-cover rounded-2xl"
         onLoad={() => setIsLoaded(true)}
         onError={() => setHasError(true)}
         style={{ 
