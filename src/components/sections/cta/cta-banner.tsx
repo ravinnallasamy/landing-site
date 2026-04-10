@@ -29,17 +29,17 @@ const CtaSection = () => {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
       </div>
-      
-      <div className="container mx-auto relative z-10 px-6">
+
+      <div className="container-standard relative z-10">
         <ScrollCard
           animation="scaleIn"
           className="text-center max-w-4xl mx-auto"
         >
           <GlassCard
             variant="dark"
-            className="p-12 md:p-20 rounded-[2.5rem]"
+            className="p-8 md:p-20 rounded-[2rem] md:rounded-[2.5rem]"
           >
             {/* Main CTA Content */}
             <h2 className="headline-lg">
@@ -47,19 +47,19 @@ const CtaSection = () => {
               <span className="gradient-text block">WayTree Isn't.</span>
             </h2>
 
-            <p className="body-lg text-foreground/90 !mb-12 max-w-2xl mx-auto">
+            <p className="body-lg text-foreground/90 !mb-8 md:!mb-12 max-w-2xl mx-auto">
               Every forgotten conversation costs you money. Every missed follow-up loses you opportunities.
               Stop the bleeding. Start today.
             </p>
 
             {/* CTA Buttons */}
-            <StaggerGroup className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <StaggerGroup className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16">
               <ScrollCard animation="fadeUp">
                 <Button
                   asChild
                   variant="primary"
                   size="lg"
-                  className="shadow-soft hover:shadow-strong font-bold text-lg"
+                  className="shadow-soft hover:shadow-strong font-bold text-base md:text-lg w-full sm:w-auto px-8 py-6 rounded-full"
                 >
                   <a
                     href="https://play.google.com/store/apps/details?id=com.waytree.app"
@@ -73,12 +73,12 @@ const CtaSection = () => {
               </ScrollCard>
 
               <ScrollCard animation="fadeUp">
-                <div className="transition-transform hover:scale-105">
+                <div className="transition-transform hover:scale-105 w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
                     onClick={handleBookDemo}
-                    className="font-bold text-lg"
+                    className="font-bold text-base md:text-lg w-full sm:w-auto px-8 py-6 rounded-full border-white/20 text-white hover:bg-white/10"
                   >
                     Book A Demo
                   </Button>
@@ -87,7 +87,7 @@ const CtaSection = () => {
             </StaggerGroup>
 
             {/* Trust Indicators */}
-            <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 { title: "Start Today", desc: "Stop losing opportunities" },
                 { title: "No Risk", desc: "14-day guarantee" },
@@ -99,7 +99,7 @@ const CtaSection = () => {
                   {...hoverScale}
                   className="text-center"
                 >
-                  <div className="headline-md gradient-text !mb-2">{item.title}</div>
+                  <div className="headline-md !text-lg md:!text-xl gradient-text !mb-1 md:!mb-2">{item.title}</div>
                   <div className="body-sm text-foreground/70">{item.desc}</div>
                 </ScrollCard>
               ))}
@@ -107,7 +107,7 @@ const CtaSection = () => {
 
             {/* Additional Trust Text */}
             <ScrollCard animation="fadeUp" delay={0.4}>
-              <p className="body-sm text-foreground/60 !mt-12">
+              <p className="body-sm text-foreground/60 !mt-8 md:!mt-12">
                 ✓ Enterprise-grade security • ✓ GDPR compliant • ✓ Cancel anytime
               </p>
             </ScrollCard>

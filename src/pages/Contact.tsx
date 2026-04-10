@@ -64,7 +64,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Page Header */}
-      <BaseSection id="contact-hero" className="pt-32 pb-4" showParticles>
+      <BaseSection id="contact-hero" className="pt-24 lg:pt-32 pb-4" showParticles>
         <SectionHeading
           tag="CONTACT US"
           title={<>Get in Touch with <span className="gradient-text">Fuzionest</span></>}
@@ -73,56 +73,56 @@ const Contact = () => {
       </BaseSection>
 
       {/* Main Content Grid */}
-      <BaseSection id="contact-main" className="py-12" backgroundVariant="none">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <BaseSection id="contact-main" className="py-6 md:py-10 lg:py-12" backgroundVariant="none">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
 
           {/* Left Column - Contact Form */}
           <ScrollCard animation="fadeUp">
-            <div className="p-10 lg:p-12 h-full bg-[#051611] border border-white/10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+            <div className="p-6 sm:p-8 md:p-10 lg:p-12 h-full bg-[#051611] border border-white/10 rounded-2xl sm:rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
               {/* Subtle accent glow in corner */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-accent/10 blur-[100px] rounded-full" />
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 blur-[100px] rounded-full" />
 
-              <h2 className="headline-md !text-white !text-3xl mb-10 border-b border-white/10 pb-6 font-bold relative z-10">Send Us a Message</h2>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <h2 className="headline-md !text-white !text-xl sm:!text-2xl md:!text-3xl mb-6 md:mb-8 lg:mb-10 border-b border-white/10 pb-4 md:pb-6 font-bold relative z-10">Send Us a Message</h2>
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <div className="space-y-3">
-                    <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Full Name</label>
+                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Full Name</label>
                     <input
                       required
                       name="fullName"
                       type="text"
                       placeholder="e.g. Ram"
-                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Email Address</label>
+                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Email Address</label>
                     <input
                       required
                       name="userEmail"
                       type="email"
                       placeholder="Ram@gmail.com"
-                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <div className="space-y-3">
-                    <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Company</label>
+                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Company</label>
                     <input
                       name="company"
                       type="text"
                       placeholder="Ram Solutions"
-                      className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Inquiry Type</label>
+                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Inquiry Type</label>
                     <div className="relative">
                       <select
                         name="subject"
-                        className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white focus:outline-none focus:border-accent focus:bg-white/10 transition-all appearance-none outline-none cursor-pointer"
+                        className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all appearance-none outline-none cursor-pointer"
                       >
                         <option className="bg-[#051611] text-white" value="General Inquiry">General Inquiry</option>
                         <option className="bg-[#051611] text-white" value="Business Partnership">Business Partnership</option>
@@ -136,13 +136,13 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Your Message</label>
+                  <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Your Message</label>
                   <textarea
                     required
                     name="message"
                     rows={6}
                     placeholder="Tell us about your networking goals..."
-                    className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none resize-none"
+                    className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500 focus:bg-white/10 transition-all outline-none resize-none"
                   />
                 </div>
 
@@ -156,7 +156,7 @@ const Contact = () => {
                   <Button
                     disabled={isSending}
                     type="submit"
-                    className="w-full md:w-auto px-12 py-8 text-xl rounded-full bg-amber-500 hover:bg-amber-600 border-none shadow-xl shadow-amber-500/20 group transition-all hover:scale-105 active:scale-95"
+                    className="w-full md:w-auto px-10 py-6 md:px-12 md:py-8 text-lg md:text-xl rounded-full bg-amber-500 hover:bg-amber-600 border-none shadow-xl shadow-amber-500/20 group transition-all hover:scale-105 active:scale-95"
                   >
                     {isSending ? (
                       <Loader2 className="animate-spin mr-2" />
@@ -171,7 +171,7 @@ const Contact = () => {
                   <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-accent font-bold mt-4 text-center"
+                    className="text-emerald-400 font-bold mt-4 text-center"
                   >
                     Message sent successfully! We'll get back to you soon.
                   </motion.p>
@@ -182,7 +182,7 @@ const Contact = () => {
 
           {/* Right Column - Contact Cards */}
           <StaggerGroup
-            className="space-y-6"
+            className="space-y-4 md:space-y-6 mt-8 lg:mt-0"
           >
             {contactDetails.map((detail) => (
               <ScrollCard key={detail.title} animation="slideRight">
@@ -193,28 +193,28 @@ const Contact = () => {
                     rel={detail.link.startsWith('http') ? "noopener noreferrer" : undefined}
                     className="block group"
                   >
-                    <GlassCard className="p-8 flex items-start gap-6 border-accent/10 group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-500 cursor-pointer h-full" variant="primary">
-                      <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                        <detail.icon className="text-accent w-7 h-7" />
+                    <GlassCard className="p-6 md:p-8 flex items-start gap-4 md:gap-6 border-emerald-500/10 group-hover:border-emerald-500/40 group-hover:bg-emerald-500/5 transition-all duration-500 cursor-pointer h-full" variant="primary">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+                        <detail.icon className="text-emerald-600 w-6 h-6 md:w-7 md:h-7" />
                       </div>
                       <div className="text-left">
-                        <h3 className="headline-md !text-lg !mb-1 text-gray-900">{detail.title}</h3>
-                        <span className="text-accent font-bold text-xl block mb-2 group-hover:underline">
+                        <h3 className="headline-md !text-base md:!text-lg !mb-1 text-gray-900">{detail.title}</h3>
+                        <span className="text-emerald-600 font-bold text-lg md:text-xl block mb-2 group-hover:underline break-all">
                           {detail.detail}
                         </span>
-                        <p className="body-md !text-sm text-gray-600 leading-relaxed">{detail.description}</p>
+                        <p className="body-md !text-xs md:!text-sm text-gray-600 leading-relaxed">{detail.description}</p>
                       </div>
                     </GlassCard>
                   </a>
                 ) : (
-                  <GlassCard className="p-8 flex items-start gap-6 border-accent/10 transition-all duration-500" variant="primary">
-                    <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                      <detail.icon className="text-accent w-7 h-7" />
+                  <GlassCard className="p-6 md:p-8 flex items-start gap-4 md:gap-6 border-emerald-500/10 transition-all duration-500" variant="primary">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                      <detail.icon className="text-emerald-600 w-6 h-6 md:w-7 md:h-7" />
                     </div>
                     <div className="text-left">
-                      <h3 className="headline-md !text-lg !mb-1 text-gray-900">{detail.title}</h3>
-                      <span className="text-accent font-bold text-xl block mb-2">{detail.detail}</span>
-                      <p className="body-md !text-sm text-gray-600 leading-relaxed">{detail.description}</p>
+                      <h3 className="headline-md !text-base md:!text-lg !mb-1 text-gray-900">{detail.title}</h3>
+                      <span className="text-emerald-600 font-bold text-lg md:text-xl block mb-2">{detail.detail}</span>
+                      <p className="body-md !text-xs md:!text-sm text-gray-600 leading-relaxed">{detail.description}</p>
                     </div>
                   </GlassCard>
                 )}
@@ -223,10 +223,10 @@ const Contact = () => {
 
 
             {/* Fuzionest Branding Social / CTA */}
-            <ScrollCard animation="fadeUp" className="pt-8">
-              <div className="bg-gradient-to-br from-emerald-950/80 to-emerald-900/80 p-10 rounded-[2rem] border border-accent/20 backdrop-blur-xl shadow-2xl">
-                <h4 className="headline-md !text-white !text-2xl mb-4">Why Fuzionest?</h4>
-                <p className="text-white/80 text-base leading-relaxed">
+            <ScrollCard animation="fadeUp" className="pt-6 md:pt-8">
+              <div className="bg-gradient-to-br from-[#051611] to-[#0a2a22] p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] border border-emerald-500/20 backdrop-blur-xl shadow-2xl">
+                <h4 className="headline-md !text-white !text-lg sm:!text-xl md:!text-2xl mb-3 md:mb-4">Why Fuzionest?</h4>
+                <p className="text-white/80 text-sm md:text-base lg:text-lg">
                   We specialize in building deep-tech solutions that transform how people connect. WayTree is a testament to our commitment to AI-driven human interaction and relationship intelligence.
                 </p>
               </div>

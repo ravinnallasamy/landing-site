@@ -36,16 +36,16 @@ const sections = [
 ];
 
 const Features = () => (
-  <BaseSection id="detailed-features" className="pt-24" showParticles>
+  <BaseSection id="detailed-features" className="pt-24 lg:pt-32" showParticles>
     <SectionHeading
       tag="FEATURES"
       title={<>Everything You Need to <span className="gradient-text">Never Forget</span></>}
       description="WayTree combines AI, voice capture, and smart organization into one seamless networking tool."
-      className="mb-24"
+      className="mb-12 md:mb-24"
     />
 
     <StaggerGroup
-      className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10"
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-10"
     >
       {sections.map((s) => (
         <ScrollCard
@@ -54,15 +54,15 @@ const Features = () => (
           whileHover={{ y: -10, transition: { duration: 0.3 } }}
           className="h-full"
         >
-          <GlassCard className="p-10 h-full flex flex-col justify-between group/card transition-all duration-500 hover:scale-[1.02] bg-white/50 backdrop-blur-xl border-gray-100 shadow-xl" variant="primary">
+          <GlassCard className="p-8 md:p-10 h-full flex flex-col justify-between group/card transition-all duration-500 hover:scale-[1.02] bg-white/50 backdrop-blur-xl border-gray-100 shadow-xl" variant="primary">
             <div>
-              <span className="text-accent text-xs font-mono tracking-[0.2em] uppercase mb-4 block font-bold">{s.tag}</span>
-              <h2 className="headline-md !text-gray-900 mb-4 transition-colors group-hover/card:text-accent">{s.title}</h2>
-              <p className="body-md !text-gray-600 mb-8 text-left">{s.description}</p>
+              <span className="hook-text !mb-4">{s.tag}</span>
+              <h2 className="headline-md !text-lg md:!text-2xl !text-gray-900 mb-4 transition-colors group-hover/card:text-emerald-500">{s.title}</h2>
+              <p className="body-md !text-gray-600 mb-6 md:mb-8">{s.description}</p>
             </div>
             
-            <div className="relative py-12 flex items-center justify-center">
-              <div className="scale-125">
+            <div className="relative py-6 md:py-10 lg:py-12 flex items-center justify-center overflow-hidden">
+              <div className="scale-90 sm:scale-100 md:scale-110 lg:scale-125">
                 <CubeCard feature={s} showContent={false} />
               </div>
             </div>

@@ -32,21 +32,21 @@ const steps = [
 const HowItWorks = () => (
   <div className="min-h-screen bg-white">
     {/* Main Unified Content Section */}
-    <BaseSection id="unified-process" className="pt-32 pb-24" showParticles>
+    <BaseSection id="unified-process" className="pt-24 lg:pt-32" showParticles>
       {/* Integrated Title */}
       <SectionHeading
         tag="PROCESS"
         title={<>Your Networking, <span className="gradient-text">Automated.</span></>}
         description="We've built a system that handles the heavy lifting of relationship management, so you can focus on building the human connection."
-        className="mb-24"
+        className="mb-12 md:mb-24"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pb-24 border-b border-gray-100">
-        {/* Left side - Visual Representation (Centered) */}
-        <div className="relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center pb-12 md:pb-24 border-b border-gray-100">
+        {/* Visual Representation */}
+        <div className="relative order-2 lg:order-1">
           <ScrollCard animation="fadeUp">
             <div className="relative group p-4 lg:p-0">
-              <div className="absolute -inset-10 bg-amber-400/10 blur-[120px] rounded-full opacity-50 transition-opacity group-hover:opacity-100" />
+              <div className="absolute -inset-6 md:-inset-10 bg-amber-400/10 blur-[120px] rounded-full opacity-50 transition-opacity group-hover:opacity-100" />
               <AnimatedImage
                 src={workflowImage}
                 alt="WayTree Workflow"
@@ -57,15 +57,15 @@ const HowItWorks = () => (
           </ScrollCard>
         </div>
 
-        {/* Right side - The Vertical 1234 Steps */}
-        <div className="relative pl-0">
+        {/* The Vertical Steps */}
+        <div className="relative order-1 lg:order-2 pl-0 md:pl-4">
           {/* Animated vertical connection line */}
           <ScrollCard
-            className="absolute left-[28px] lg:left-[40px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0 origin-top"
+            className="absolute left-[20px] sm:left-[24px] md:left-[30px] lg:left-[40px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0 origin-top"
             animation="growY"
           />
 
-          <StaggerGroup className="space-y-20">
+          <StaggerGroup className="space-y-12 md:space-y-20">
             {steps.map((step) => (
               <ScrollCard
                 key={step.step}
@@ -75,19 +75,19 @@ const HowItWorks = () => (
                 {/* Step Circle Indicator */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className="absolute left-0 top-0 w-14 h-14 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-white border-[3px] border-amber-400 shadow-[0_10px_30px_rgba(251,191,36,0.2)] transition-all group-hover:bg-amber-400 group-hover:shadow-[0_15px_40px_rgba(251,191,36,0.3)] z-10"
+                  className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-white border-[2px] md:border-[3px] border-amber-400 shadow-[0_10px_30px_rgba(251,191,36,0.2)] transition-all group-hover:bg-amber-400 group-hover:shadow-[0_15px_40px_rgba(251,191,36,0.3)] z-10"
                 >
-                  <span className="text-amber-600 font-display font-bold text-xl lg:text-3xl group-hover:text-white transition-colors">
+                  <span className="text-amber-600 font-display font-bold text-base sm:text-lg md:text-2xl lg:text-3xl group-hover:text-white transition-colors">
                     {step.step}
                   </span>
                 </motion.div>
 
                 {/* Content offset to account for circle size */}
-                <div className="ml-20 lg:ml-32 pt-2">
-                  <h3 className="headline-md !text-2xl lg:!text-3xl mb-4 group-hover:text-amber-600 transition-colors duration-300">
+                <div className="ml-14 sm:ml-16 md:ml-24 lg:ml-32 pt-0 sm:pt-1 md:pt-2">
+                  <h3 className="headline-md !text-base sm:!text-lg md:!text-2xl lg:!text-3xl mb-2 md:mb-4 group-hover:text-amber-600 transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="body-lg text-left text-muted-foreground leading-relaxed text-lg">
+                  <p className="body-md md:body-lg text-left text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
@@ -97,13 +97,13 @@ const HowItWorks = () => (
         </div>
       </div>
 
-      {/* Narrative Split - Minimal gap to keep continuity */}
-      <div className="py-24">
+      {/* Narrative Split */}
+      <div className="py-12 md:py-24">
         <ScrollCard animation="fadeUp" className="text-center max-w-3xl mx-auto">
           <SectionHeading
             title="Ready to transform your network?"
             description="Join thousands of professionals using WayTree to build lasting relationships with zero effort."
-            className="mb-12"
+            className="mb-8 md:mb-12"
           />
           
           <div className="inline-block relative">
@@ -112,7 +112,7 @@ const HowItWorks = () => (
               asChild
               variant="primary"
               size="lg"
-              className="px-12 py-10 text-2xl rounded-full font-bold shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none relative z-10"
+              className="px-8 py-6 md:px-12 md:py-10 text-xl md:text-2xl rounded-full font-bold shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none relative z-10"
             >
               <a
                 href="https://play.google.com/store/apps/details?id=com.waytree.app"

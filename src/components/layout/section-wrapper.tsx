@@ -28,11 +28,12 @@ const SectionWrapper = memo(({
     )}
     style={{ transform: "translateZ(0)" }}
   >
-    <div className={cn("container mx-auto px-4 md:px-8", containerClassName)}>
+    <div className={cn("container-standard", containerClassName)}>
       {children}
     </div>
   </Component>
 ));
+
 
 SectionWrapper.displayName = "SectionWrapper";
 

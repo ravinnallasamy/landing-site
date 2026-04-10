@@ -20,42 +20,24 @@ import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [responsivePositions, setResponsivePositions] = useState<{ targetX: number; targetY: number }[]>([]);
 
-  // Feature data with rectangular grid positions
+  // Feature data with base grid positions
+  // These will be used as reference but actual positioning will be CSS-driven for responsiveness
   const features = [
-    { icon: MessageSquare, title: "Conversations", description: "Capture every interaction", targetX: -300, targetY: -120, delay: 0 },
-    { icon: Bell, title: "Smart Reminders", description: "Never miss moments", targetX: -320, targetY: 0, delay: 0 },
-    { icon: Calendar, title: "Meetings", description: "Track every discussion", targetX: -300, targetY: 120, delay: 0 },
-    { icon: Users, title: "Connections", description: "Build stronger relationships", targetX: 300, targetY: -120, delay: 0 },
-    { icon: Search, title: "Instant Recall", description: "Find anything instantly", targetX: 320, targetY: 0, delay: 0 },
-    { icon: Brain, title: "AI Intelligence", description: "Deep relationship insights", targetX: 300, targetY: 120, delay: 0 }
+    { icon: MessageSquare, title: "Conversations", description: "Capture every interaction", delay: 0 },
+    { icon: Bell, title: "Smart Reminders", description: "Never miss moments", delay: 0 },
+    { icon: Calendar, title: "Meetings", description: "Track every discussion", delay: 0 },
+    { icon: Users, title: "Connections", description: "Build stronger relationships", delay: 0 },
+    { icon: Search, title: "Instant Recall", description: "Find anything instantly", delay: 0 },
+    { icon: Brain, title: "AI Intelligence", description: "Deep relationship insights", delay: 0 }
   ];
-
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 1024;
-      setIsMobile(mobile);
-      setResponsivePositions(features.map(f => {
-        if (!mobile) return { targetX: f.targetX, targetY: f.targetY };
-        const sw = window.innerWidth;
-        const scaleX = sw < 360 ? 0.35 : sw < 420 ? 0.41 : sw < 640 ? 0.56 : sw < 768 ? 0.72 : 0.82;
-        const scaleY = sw < 360 ? 0.55 : sw < 640 ? 0.7 : sw < 768 ? 0.8 : 0.9;
-        return { targetX: f.targetX * scaleX, targetY: f.targetY * scaleY };
-      }));
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
   const smoothScrollProgress = useSpring(scrollYProgress, { stiffness: 400, damping: 40, restDelta: 0.001 });
 
   const linePathLength = useTransform(smoothScrollProgress, [0.1, 0.6], [0, 1]);
   const lineOpacity = useTransform(smoothScrollProgress, [0.1, 0.3], [0, 1]);
-  const mobileLineOpacity = useTransform(smoothScrollProgress, [0.1, 0.3], [0, 0.2]);
+  const mobileLineOpacity = useTransform(smoothScrollProgress, [0.1, 0.3], [0, 0.4]); // Slightly higher for visibility
   const connectorScale = useTransform(smoothScrollProgress, [0.4, 0.6], [0, 1]);
   const connectorOpacity = useTransform(smoothScrollProgress, [0.4, 0.6], [0, 1]);
 
@@ -72,8 +54,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/90" />
       <NeuralBackground />
 
-      <div className="relative z-10 container mx-auto max-w-6xl px-4 min-h-screen flex flex-col items-center justify-center">
-        <ScrollCard animation="fadeUp" className="text-center max-w-4xl">
+      <div className="relative z-10 container-standard min-h-[90vh] flex flex-col items-center justify-center">
+        <ScrollCard animation="fadeUp" className="text-center max-w-4xl pt-20 lg:pt-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 shadow-lg backdrop-blur-md">
             <div className="w-2 h-2 bg-green-400 rounded-full" />
             <span className="text-sm font-medium text-white/90">
@@ -102,7 +84,7 @@ const HeroSection = () => {
             
             <Link to="/how-it-works">
               <ScrollCard animation="fadeUp" {...hoverScale}>
-                <Button variant="outline" size="lg" className="rounded-full shadow-lg">
+                <Button variant="outline" size="lg" className="rounded-full shadow-lg border-white/20 text-white hover:bg-white/10">
                   Watch Demo
                 </Button>
               </ScrollCard>
@@ -111,12 +93,10 @@ const HeroSection = () => {
         </ScrollCard>
       </div>
 
-      <div className="relative z-20 w-full overflow-hidden">
+      <div className="relative z-20 w-full overflow-hidden h-[60vh] sm:h-[70vh] lg:h-[80vh]">
         <NeuralNetwork
           features={features}
           smoothScrollProgress={smoothScrollProgress}
-          isMobile={isMobile}
-          responsivePositions={responsivePositions}
           linePathLength={linePathLength}
           lineOpacity={lineOpacity}
           mobileLineOpacity={mobileLineOpacity}
@@ -126,12 +106,13 @@ const HeroSection = () => {
           <img
             src={heroMobile}
             alt="WayTree Neural Network"
-            className="w-full h-auto rounded-3xl animate-gpu-float"
+            className="w-full h-auto rounded-3xl animate-gpu-float shadow-2xl shadow-green-900/20"
           />
         </NeuralNetwork>
       </div>
     </section>
   );
 };
+
 export default HeroSection;
 

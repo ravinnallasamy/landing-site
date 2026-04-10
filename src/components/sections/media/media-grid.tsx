@@ -36,34 +36,35 @@ const MediaSection = () => {
           </>
         }
         description="Every photo, every voice note, every interaction — all in one place."
+        className="mb-8 md:mb-16"
       />
 
       {/* Main Content - Image and Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 mb-20">
-        {/* Left side - Media Image with Cinematic high-fidelity animation */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10 mb-12 md:mb-20">
+        {/* Media Image with Cinematic high-fidelity animation */}
         <ScrollCard
           animation="fadeUp"
           className="relative order-2 lg:order-1"
         >
-          <div className="max-w-xl mx-auto lg:mx-0 aspect-[3/4]">
+          <div className="max-w-xl mx-auto lg:mx-0 aspect-[4/3] md:aspect-[3/4]">
             <AnimatedImage
               src={mediaImage}
               alt="Media Search Interface"
               variant="cinematic"
-              className="rounded-2xl shadow-2xl w-full h-full"
+              className="rounded-2xl shadow-2xl w-full h-full object-cover"
               priority={true}
             />
           </div>
         </ScrollCard>
 
-        {/* Right side - Features list */}
+        {/* Features list */}
         <StaggerGroup 
-          className="space-y-6 order-1 lg:order-2"
+          className="space-y-4 md:space-y-6 order-1 lg:order-2"
         >
           {features.map((feature) => (
             <ScrollCard key={feature.title} animation="slideRight">
-              <GlassCard className="p-8 text-justify" variant="primary">
-                <h3 className="headline-md mb-4 text-left">
+              <GlassCard className="p-6 md:p-8" variant="primary">
+                <h3 className="headline-md !text-lg md:!text-xl mb-2 md:mb-4">
                   {feature.title}
                 </h3>
                 <p className="body-md">
@@ -76,12 +77,12 @@ const MediaSection = () => {
           <ScrollCard animation="fadeUp">
             <GlassCard
               variant="primary"
-              className="p-8"
+              className="p-6 md:p-8"
             >
-              <h4 className="font-display font-bold text-emerald-400 text-lg mb-2">
+              <h4 className="headline-md !text-base md:!text-lg text-emerald-600 mb-2">
                 Professional Media Library
               </h4>
-              <p className="text-muted-foreground font-medium leading-relaxed text-justify">
+              <p className="body-md font-medium">
                 Keep all your professional media organized and accessible from anywhere, anytime.
               </p>
             </GlassCard>
@@ -91,13 +92,13 @@ const MediaSection = () => {
 
       {/* Bottom Stats Grid */}
       <StaggerGroup 
-        className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 relative z-10"
       >
         {stats.map((stat) => (
           <ScrollCard key={stat.label} animation="scaleIn">
-            <GlassCard className="text-center p-8" variant="primary">
-              <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="text-muted-foreground font-semibold uppercase tracking-wider text-sm">
+            <GlassCard className="text-center p-6 md:p-8" variant="primary">
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">{stat.value}</div>
+              <div className="hook-text !mb-0 text-gray-500">
                 {stat.label}
               </div>
             </GlassCard>

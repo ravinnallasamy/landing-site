@@ -31,7 +31,7 @@ export const DetailedCard = ({
         transition: { duration: 0.3 }
       }}
       className={cn(
-        "p-10 h-full transition-all duration-500 rounded-[2rem] group cursor-pointer",
+        "p-6 md:p-8 lg:p-10 h-full transition-all duration-500 rounded-xl md:rounded-2xl lg:rounded-[2rem] group cursor-pointer",
         isHighlighted 
           ? "bg-green-400 text-black border-none shadow-[0_20px_40px_-15px_rgba(74,222,128,0.3)]" 
           : "bg-white/50 backdrop-blur-xl border-gray-100 hover:border-accent/40 shadow-xl"
@@ -47,14 +47,14 @@ export const DetailedCard = ({
       )}
       {title && (
         <h3 className={cn(
-          "font-display text-3xl font-bold mb-6",
+          "font-display text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6",
           isHighlighted ? "text-black" : "text-gray-900"
         )}>
           {title}
         </h3>
       )}
       <p className={cn(
-        "text-lg leading-relaxed text-justify w-full font-medium",
+        "text-base md:text-lg leading-relaxed text-justify w-full font-medium",
         isHighlighted ? "text-black/80" : "text-gray-600"
       )}>
         {text}
