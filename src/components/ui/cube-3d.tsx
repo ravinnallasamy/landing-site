@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { fadeUp, textReveal, baseViewport } from "@/lib/animations";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { fadeUp, baseViewport } from "@/lib/animations";
 import { useRef } from "react";
 
 interface CubeCardProps {
