@@ -1,32 +1,58 @@
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HeroSection from "@/components/sections/hero/hero-section";
-import FeaturesSection from "@/components/sections/features/features-grid";
-import WhyUsSection from "@/components/sections/why-us/comparison-grid";
-import DashboardSection from "@/components/sections/dashboard/dashboard-preview";
-import MediaSection from "@/components/sections/media/media-grid";
-import ProblemSection from "@/components/sections/problem/problem-summary";
-import CTASection from "@/components/sections/cta/cta-banner";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsAndConditions from "@/pages/TermsAndConditions";
-import FeaturesPage from "@/pages/Features";
-import HowItWorksPage from "@/pages/HowItWorks";
-import AboutPage from "@/pages/About";
-import ContactPage from "@/pages/Contact";
 import { ScrollHandler } from "@/components/layout/scroll-handler";
 
-import AIChatSection from "@/components/sections/ai-chat/chat-ui";
+// Lazy Loaded Sections
+const HeroSection = React.lazy(() => import("@/components/sections/hero/hero-section"));
+const DashboardSection = React.lazy(() => import("@/components/sections/dashboard/dashboard-preview"));
+const MediaSection = React.lazy(() => import("@/components/sections/media/media-grid"));
+const ProblemSection = React.lazy(() => import("@/components/sections/problem/problem-summary"));
+const CTASection = React.lazy(() => import("@/components/sections/cta/cta-banner"));
+const AIChatSection = React.lazy(() => import("@/components/sections/ai-chat/chat-ui"));
+
+// Lazy Loaded Pages
+const PrivacyPolicy = React.lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsAndConditions = React.lazy(() => import("@/pages/TermsAndConditions"));
+const FeaturesPage = React.lazy(() => import("@/pages/Features"));
+const HowItWorksPage = React.lazy(() => import("@/pages/HowItWorks"));
+const AboutPage = React.lazy(() => import("@/pages/About"));
+const ContactPage = React.lazy(() => import("@/pages/Contact"));
+
+const SectionFallback = () => (
+  <div className="w-full h-[50vh] flex items-center justify-center bg-black">
+    <div className="w-8 h-8 rounded-full border-2 border-green-500/20 border-t-green-500 animate-spin" />
+  </div>
+);
+
+const PageFallback = () => (
+  <div className="w-full min-h-screen flex items-center justify-center bg-black pt-20">
+    <div className="w-8 h-8 rounded-full border-2 border-green-500/20 border-t-green-500 animate-spin" />
+  </div>
+);
 
 function LandingPage() {
   return (
     <main>
-      <HeroSection />
-      <ProblemSection />
-      <DashboardSection />
-      <MediaSection />
-      <AIChatSection />
-      <CTASection />
+      <Suspense fallback={<SectionFallback />}>
+        <HeroSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <ProblemSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <DashboardSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <MediaSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <AIChatSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <CTASection />
+      </Suspense>
     </main>
   );
 }
@@ -36,15 +62,17 @@ function App() {
     <Router>
       <ScrollHandler />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsAndConditions />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/how-it-works" element={<HowItWorksPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </Router>
   );

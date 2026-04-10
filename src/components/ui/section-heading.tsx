@@ -32,8 +32,8 @@ export const SectionHeading = ({
   return (
     <motion.div
       variants={staggerContainer}
-      initial="initial"
-      whileInView="animate"
+      initial="hidden"
+      whileInView="visible"
       viewport={baseViewport}
       transition={{ delay }}
       className={cn("max-w-4xl mb-16 relative z-10 flex flex-col", alignmentClasses[align], className)}

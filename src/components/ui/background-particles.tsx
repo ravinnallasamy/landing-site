@@ -1,25 +1,27 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 
 const BackgroundParticles = () => {
   const [particles, setParticles] = useState<{ id: number; size: number; xOffset: number; yOffset: number; duration: number; delay: number; color: string; blur: string; xDrift: number }[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: false, amount: 0 });
 
   useEffect(() => {
     const mobileCheck = window.innerWidth < 768;
-    const count = mobileCheck ? 10 : 20;
-    const colors = ["bg-emerald-400", "bg-cyan-400", "bg-blue-500", "bg-green-300", "bg-indigo-400"];
-    const blurs = ["blur-[60px]", "blur-[90px]", "blur-[120px]"];
+    const count = mobileCheck ? 5 : 12; // reduced count
+    const colors = ["bg-emerald-400", "bg-cyan-400", "bg-blue-500"];
+    const blurs = ["blur-[40px]", "blur-[60px]"]; // reduced blurs
     
     const newParticles = Array.from({ length: count }).map((_, i) => ({
       id: i,
-      size: Math.random() * 250 + 150,
+      size: Math.random() * 200 + 100,
       xOffset: Math.random() * 100,
       yOffset: Math.random() * -100 - 50,
-      duration: Math.random() * 10 + 15,
-      delay: i < count / 2 ? 0 : Math.random() * 4, // 50% start instantly, others within 4s
+      duration: Math.random() * 8 + 10,
+      delay: i < count / 2 ? 0 : Math.random() * 2,
       color: colors[i % colors.length],
       blur: blurs[i % blurs.length],
-      xDrift: (Math.random() - 0.5) * 40,
+      xDrift: (Math.random() - 0.5) * 30,
     }));
 
     setParticles(newParticles);
@@ -29,10 +31,11 @@ const BackgroundParticles = () => {
 
   return (
     <div 
+      ref={containerRef}
       className="absolute inset-0 -z-10 pointer-events-none overflow-hidden bg-transparent"
       style={{ perspective: "1200px" }}
     >
-      {particles.map((p, i) => {
+      {isInView && particles.map((p, i) => {
         const startZ = (i % 5) * -150 - 100;
         const endZ = startZ + 400;
         
@@ -46,26 +49,25 @@ const BackgroundParticles = () => {
               opacity: 0,
               scale: 0.4,
             }}
-            animate={{
+            whileInView={{
               x: [`${p.xOffset}%`, `${p.xOffset + p.xDrift}%`],
               y: [`${p.yOffset}%`, `125%`],
               z: [startZ, endZ],
-              opacity: [0, 0.15, 0.15, 0], // Reduced opacity from 0.3 to 0.15
+              opacity: [0, 0.1, 0.1, 0], 
               scale: [0.4, 1.1, 0.4],
-              rotateX: [0, 180, 360],
-              rotateY: [0, 180, 360],
+              rotateX: [0, 180],
+              rotateY: [0, 180],
             }}
+            viewport={{ once: true, amount: 0 }}
             transition={{
               duration: p.duration,
               delay: p.delay,
-              repeat: Infinity,
               ease: "linear",
             }}
             style={{
               width: p.size,
               height: p.size,
-              willChange: "transform",
-              transformStyle: "preserve-3d"
+              willChange: "transform, opacity",
             }}
             className={`absolute rounded-full ${p.color} ${p.blur} mix-blend-screen opacity-10`}
           />

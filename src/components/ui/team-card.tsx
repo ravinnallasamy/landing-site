@@ -21,8 +21,8 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
   return (
     <MotionGlassCard
       variants={fadeUp}
-      initial="initial"
-      whileInView="animate"
+      initial="hidden"
+      whileInView="visible"
       viewport={baseViewport}
       transition={{ delay: index * 0.15 }}
       {...hoverScale}

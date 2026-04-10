@@ -35,20 +35,17 @@ const CtaSection = () => {
       <div className="container mx-auto relative z-10 px-6">
         <MotionGlassCard
           variants={scaleIn}
-          initial="initial"
-          whileInView="animate"
+          initial="hidden"
+          whileInView="visible"
           viewport={baseViewport}
           variant="dark"
           className="text-center max-w-4xl mx-auto p-12 md:p-20 rounded-[2.5rem]"
         >
           {/* Main CTA Content */}
-          <motion.h2
-            variants={fadeUp}
-            className="headline-lg"
-          >
+          <h2 className="headline-lg">
             Your Memory Is Unreliable.
             <span className="gradient-text block">WayTree Isn't.</span>
-          </motion.h2>
+          </h2>
 
           <p className="body-lg text-foreground/90 !mb-12 max-w-2xl mx-auto">
             Every forgotten conversation costs you money. Every missed follow-up loses you opportunities.
@@ -63,17 +60,17 @@ const CtaSection = () => {
               size="lg"
               className="shadow-soft hover:shadow-strong font-bold text-lg"
             >
-              <motion.a
+              <a
                 href="https://play.google.com/store/apps/details?id=com.waytree.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                {...hoverScale}
+                className="transition-transform hover:scale-105"
               >
                 Get Started Now
-              </motion.a>
+              </a>
             </Button>
 
-            <motion.div {...hoverScale}>
+            <div className="transition-transform hover:scale-105">
               <Button
                 variant="outline"
                 size="lg"
@@ -82,7 +79,7 @@ const CtaSection = () => {
               >
                 Book A Demo
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Trust Indicators */}
@@ -92,26 +89,20 @@ const CtaSection = () => {
               { title: "No Risk", desc: "14-day guarantee" },
               { title: "Real Results", desc: "Or your money back" }
             ].map((item, index) => (
-              <motion.div
+              <div
                 key={item.title}
-                variants={fadeUp}
-                custom={index}
-                {...hoverScale}
-                className="text-center"
+                className="text-center transition-transform hover:scale-105"
               >
                 <div className="headline-md gradient-text !mb-2">{item.title}</div>
                 <div className="body-sm text-foreground/70">{item.desc}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Additional Trust Text */}
-          <motion.p
-            variants={fadeUp}
-            className="body-sm text-foreground/60 !mt-12"
-          >
+          <p className="body-sm text-foreground/60 !mt-12">
             ✓ Enterprise-grade security • ✓ GDPR compliant • ✓ Cancel anytime
-          </motion.p>
+          </p>
         </MotionGlassCard>
       </div>
     </section>

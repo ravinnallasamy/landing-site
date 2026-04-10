@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { GlassCard, MotionGlassCard } from "@/components/ui/glass-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { BaseSection } from "@/components/layout/base-section";
-import { fadeUp, baseViewport, hoverScale, sectionReveal } from "@/lib/animations";
+import { fadeUp, baseViewport, hoverScale, sectionReveal, staggerContainer } from "@/lib/animations";
+import { ScrollCard } from "@/components/ui/scroll-card";
 
 const MediaSection = () => {
   const features = [
@@ -44,8 +45,8 @@ const MediaSection = () => {
         {/* Left side - Media Image with Cinematic high-fidelity animation */}
         <motion.div
           variants={sectionReveal}
-          initial="initial"
-          whileInView="animate"
+          initial="hidden"
+          whileInView="visible"
           viewport={baseViewport}
           className="relative order-2 lg:order-1"
         >
@@ -61,17 +62,11 @@ const MediaSection = () => {
         </motion.div>
 
         {/* Right side - Features list */}
-        <div className="space-y-6 order-1 lg:order-2">
+        <div 
+          className="space-y-6 order-1 lg:order-2"
+        >
           {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              variants={fadeUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={baseViewport}
-              transition={{ delay: index * 0.1 }}
-              {...hoverScale}
-            >
+            <ScrollCard key={feature.title}>
               <GlassCard className="p-8 text-justify bg-black/40 border-white/10" variant="dark">
                 <h3 className="headline-md mb-4 text-left text-white">
                   {feature.title}
@@ -80,47 +75,38 @@ const MediaSection = () => {
                   {feature.description}
                 </p>
               </GlassCard>
-            </motion.div>
+            </ScrollCard>
           ))}
           
-          <MotionGlassCard
-            variants={fadeUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={baseViewport}
-            custom={3}
-            variant="primary"
-            className="p-8"
-          >
-            <h4 className="font-display font-bold text-emerald-400 text-lg mb-2">
-              Professional Media Library
-            </h4>
-            <p className="text-muted-foreground font-medium leading-relaxed text-justify">
-              Keep all your professional media organized and accessible from anywhere, anytime.
-            </p>
-          </MotionGlassCard>
+          <ScrollCard>
+            <GlassCard
+              variant="primary"
+              className="p-8"
+            >
+              <h4 className="font-display font-bold text-emerald-400 text-lg mb-2">
+                Professional Media Library
+              </h4>
+              <p className="text-muted-foreground font-medium leading-relaxed text-justify">
+                Keep all your professional media organized and accessible from anywhere, anytime.
+              </p>
+            </GlassCard>
+          </ScrollCard>
         </div>
       </div>
 
       {/* Bottom Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+      <div 
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10"
+      >
         {stats.map((stat, index) => (
-          <motion.div
-            key={stat.label}
-            variants={fadeUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={baseViewport}
-            transition={{ delay: 0.5 + index * 0.1 }}
-            {...hoverScale}
-          >
+          <ScrollCard key={stat.label}>
             <GlassCard className="text-center p-8" variant="primary">
               <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
               <div className="text-muted-foreground font-semibold uppercase tracking-wider text-sm">
                 {stat.label}
               </div>
             </GlassCard>
-          </motion.div>
+          </ScrollCard>
         ))}
       </div>
     </BaseSection>

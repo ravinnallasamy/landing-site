@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
-import { fadeUp, baseViewport, hoverScale } from "@/lib/animations";
+import { fadeUp, staggerContainer, baseViewport, hoverScale } from "@/lib/animations";
 import BackgroundParticles from "@/components/ui/background-particles";
+import { ScrollCard } from "@/components/ui/scroll-card";
 
 const AiChatSection = () => {
   const features = [
@@ -30,8 +31,8 @@ const AiChatSection = () => {
       {/* Section Header */}
       <motion.div
         variants={fadeUp}
-        initial="initial"
-        whileInView="animate"
+        initial="hidden"
+        whileInView="visible"
         viewport={baseViewport}
         className="text-center mb-16 relative z-10"
       >
@@ -46,17 +47,11 @@ const AiChatSection = () => {
       {/* Main Content - Text and Image */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left side - Features */}
-        <div className="space-y-6">
+        <div 
+          className="space-y-6"
+        >
           {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              variants={fadeUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={baseViewport}
-              transition={{ delay: index * 0.1 }}
-              {...hoverScale}
-            >
+            <ScrollCard key={feature.title}>
               <GlassCard className="p-8" variant="primary">
                 <h3 className="headline-md mb-3 group-hover:text-accent transition-colors duration-300">
                   {feature.title}
@@ -65,15 +60,15 @@ const AiChatSection = () => {
                   {feature.description}
                 </p>
               </GlassCard>
-            </motion.div>
+            </ScrollCard>
           ))}
         </div>
 
         {/* Right side - AI Chat Image */}
         <motion.div
           variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
+          initial="hidden"
+          whileInView="visible"
           viewport={baseViewport}
           transition={{ delay: 0.3 }}
           className="flex justify-center lg:justify-end items-center"
@@ -93,8 +88,8 @@ const AiChatSection = () => {
       {/* CTA Button */}
       <motion.div
         variants={fadeUp}
-        initial="initial"
-        whileInView="animate"
+        initial="hidden"
+        whileInView="visible"
         viewport={baseViewport}
         transition={{ delay: 0.6 }}
         className="text-center mt-16 relative z-10"

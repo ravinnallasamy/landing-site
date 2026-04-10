@@ -83,15 +83,10 @@ export const NeuralNetwork = ({
       {/* Mobile mockup - neural center */}
       <div ref={mobileRef} className="relative z-20 mx-auto w-[42%] max-w-[180px] sm:max-w-none sm:w-64 md:w-80 lg:w-[600px] flex items-center justify-center">
         <motion.div
-          animate={{
-            y: [0, -10, 0],
-            scale: [1, 1.02, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          initial={{ y: 0, scale: 0.95 }}
+          whileInView={{ y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ willChange: "transform" }}
         >
           {children}

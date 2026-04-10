@@ -80,34 +80,31 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto max-w-6xl px-4 min-h-screen flex flex-col items-center justify-center">
         <motion.div
           variants={fadeUp}
-          initial="initial"
-          animate="animate"
+          initial="hidden"
+          whileInView="visible"
+          viewport={baseViewport}
           className="text-center max-w-4xl"
         >
-          <MotionGlassCard
-            variants={scaleIn}
-            variant="primary"
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full"
-          >
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-foreground/90">
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 shadow-lg backdrop-blur-md">
+            <div className="w-2 h-2 bg-green-400 rounded-full" />
+            <span className="text-sm font-medium text-white/90">
               Trusted by 100+ professionals
             </span>
-          </MotionGlassCard>
+          </div>
 
           <motion.h1 variants={textReveal} className="headline-xl gradient-text text-glow-accent !mb-4">
             Stop Forgetting People
           </motion.h1>
 
-          <motion.h2 variants={fadeUp} transition={{ delay: 0.2 }} className="headline-md text-foreground/90 !mb-4">
+          <h2 className="headline-md text-white/90 !mb-4">
             Your Memory Fails. WayTree Doesn't.
-          </motion.h2>
+          </h2>
 
-          <motion.p variants={paragraphFade} className="body-lg !mb-8 max-w-2xl mx-auto">
+          <p className="body-lg !mb-8 max-w-2xl mx-auto text-white/80">
             WayTree captures conversations, organizes your network, and tells you exactly who to follow up with.
-          </motion.p>
+          </p>
 
-          <motion.div variants={staggerContainer} initial="initial" animate="animate" className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={baseViewport} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <AppDownloadButton />
             
             <Link to="/how-it-works">
@@ -136,7 +133,7 @@ const HeroSection = () => {
           <img
             src={heroMobile}
             alt="WayTree Neural Network"
-            className="w-full h-auto rounded-3xl"
+            className="w-full h-auto rounded-3xl animate-gpu-float"
           />
         </NeuralNetwork>
       </div>

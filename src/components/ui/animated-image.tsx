@@ -30,14 +30,13 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
   
   // High-fidelity entry variants
   const cinematicVariants = {
-    initial: { opacity: 0, scale: 1.1, y: 40, filter: "blur(10px)" },
+    initial: { opacity: 0, scale: 1.05, y: 30 },
     animate: { 
       opacity: 1, 
       scale: 1, 
       y: 0, 
-      filter: "blur(0px)",
       transition: {
-        duration: 1.2,
+        duration: 1.0,
         ease: [0.23, 1, 0.32, 1] as const
       }
     }
@@ -73,13 +72,13 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
             rotateX: isCinematic ? rotateX : rotateX, // Using our standardized springs
             rotateY: isCinematic ? rotateY : rotateY,
             transformStyle: "preserve-3d",
-            willChange: "transform, opacity, filter"
+            willChange: "transform, opacity"
           }}
           whileHover={{ 
-            scale: 1.03,
+            scale: 1.02,
             transition: { duration: 0.4, ease: "easeOut" }
           }}
-          className={`relative w-full h-full rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden bg-transparent backface-hidden`}
+          className={`relative w-full h-full rounded-2xl shadow-xl overflow-hidden bg-transparent backface-hidden animate-gpu-float`}
         >
           {/* Shine effect overlay (Cinematic only) */}
           {isCinematic && (
@@ -121,7 +120,7 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
       whileHover={variant !== "pulse" ? { y: -5, scale: 1.02 } : {}}
       animate={variant === "pulse" ? { scale: [1, 1.02, 1] } : {}}
       transition={{ duration: 0.4 }}
-      className={className}
+      className={`${className} animate-gpu-float`}
       style={{ willChange: "transform, opacity" }}
     >
       <img

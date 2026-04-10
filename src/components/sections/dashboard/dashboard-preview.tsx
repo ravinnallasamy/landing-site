@@ -3,8 +3,9 @@ import AnimatedImage from "@/components/ui/animated-image";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { fadeUp, baseViewport, hoverScale } from "@/lib/animations";
+import { fadeUp, staggerContainer, baseViewport } from "@/lib/animations";
 import BackgroundParticles from "@/components/ui/background-particles";
+import { ScrollCard } from "@/components/ui/scroll-card";
 
 const DashboardSection = () => {
   return (
@@ -15,8 +16,8 @@ const DashboardSection = () => {
         {/* Section Header */}
         <motion.div
           variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
+          initial="hidden"
+          whileInView="visible"
           viewport={baseViewport}
           className="text-center mb-16"
         >
@@ -32,34 +33,28 @@ const DashboardSection = () => {
       {/* Main Content - Features and Image */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left side - Features */}
-        <div className="space-y-6">
+        <div 
+          className="space-y-6"
+        >
           {[
             { title: "Smart Tracking", desc: "Every conversation captured" },
             { title: "AI Summaries", desc: "Know what was discussed" },
             { title: "Follow-Up Reminders", desc: "Never miss opportunities" }
           ].map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              variants={fadeUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={baseViewport}
-              transition={{ delay: i * 0.1 }}
-              {...hoverScale}
-            >
+            <ScrollCard key={feature.title}>
               <GlassCard className="p-8 text-justify" variant="primary">
                 <div className="headline-md gradient-text mb-4 text-left">{feature.title}</div>
                 <div className="body-md font-medium">{feature.desc}</div>
               </GlassCard>
-            </motion.div>
+            </ScrollCard>
           ))}
         </div>
 
         {/* Right side - Dashboard Image */}
         <motion.div
           variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
+          initial="hidden"
+          whileInView="visible"
           viewport={baseViewport}
           transition={{ delay: 0.3 }}
           className="flex justify-center lg:justify-end items-center"

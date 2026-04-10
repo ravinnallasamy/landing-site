@@ -248,4 +248,14 @@
   .card-description {
     @apply font-body text-[7px] md:text-xs font-semibold text-white/90 mt-[1px] md:mt-1 text-justify;
   }
+
+  @keyframes gpuFloat {
+    0%, 100% { transform: translateY(0) translateZ(0); }
+    50% { transform: translateY(-3%) translateZ(0); }
+  }
+
+  .animate-gpu-float {
+    animation: gpuFloat 6s ease-in-out infinite;
+    will-change: transform;
+  }
 }

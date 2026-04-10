@@ -3,7 +3,7 @@
  * Centralized source of truth for all primitive values
  */
 
-export const colors = {
+const colors = {
   primary: "hsl(155, 56%, 42%)",
   primaryHover: "hsl(155, 40%, 30%)",
   accent: "hsl(168, 76%, 42%)",
@@ -14,7 +14,7 @@ export const colors = {
   muted: "hsl(160, 20%, 60%)",
 };
 
-export const gradients = {
+const gradients = {
   neural: "linear-gradient(135deg, hsl(155, 50%, 7%), hsl(155, 40%, 14%))",
   emerald: "linear-gradient(135deg, hsl(168, 76%, 42%), hsl(155, 56%, 30%))",
   glow: "radial-gradient(ellipse at center, hsl(168, 76%, 42%, 0.15), transparent 70%)",
@@ -26,7 +26,7 @@ export const glass = {
   light: "bg-white/80 backdrop-blur-md border border-gray-200 shadow-md",
 };
 
-export const animations = {
+const animations = {
   fast: 0.2,
   normal: 0.6,
   slow: 1.2,

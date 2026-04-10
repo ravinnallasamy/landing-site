@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { rotateCubeY, repeatViewport } from "@/lib/animations";
+import { fadeUp, textReveal, baseViewport } from "@/lib/animations";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface CubeCardProps {
   feature: {
@@ -11,53 +13,43 @@ interface CubeCardProps {
 }
 
 const CubeCard = ({ feature, showContent = true }: CubeCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
-    <div className="relative group h-full">
-      <motion.div 
-        className="relative w-32 h-32 mx-auto mb-6" 
-        style={{ 
-          transformStyle: "preserve-3d",
-          perspective: "1200px"
-        }}
-        initial={{ rotateY: 0 }}
-        whileInView={rotateCubeY.animate}
-        transition={rotateCubeY.transition}
-        viewport={repeatViewport}
-      >
-        {/* Faces */}
-        {[0, 90, 180, -90].map((angle, i) => (
-          <div 
-            key={angle}
-            className="absolute inset-0 rounded-xl overflow-hidden border border-white/10 shadow-xl bg-white"
-            style={{ 
-              transform: `rotateY(${angle}deg) translateZ(64px)`,
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden"
-            }}
-          >
+    <div ref={ref} className="relative group h-full">
+      {isInView && (
+        <div className="relative w-32 h-32 mx-auto mb-6 animate-gpu-float">
+          <div className="absolute inset-0 rounded-xl overflow-hidden border border-white/10 shadow-xl bg-white">
             <img 
               src={feature.image} 
               alt={feature.title} 
-              className="w-full h-full object-cover opacity-90" 
+              className="w-full h-full object-cover opacity-90 transition-transform hover:scale-110 duration-500" 
               loading="lazy"
             />
           </div>
-        ))}
-      </motion.div>
+        </div>
+      )}
 
       {/* Ambient Floor Shadow */}
-      <div className="absolute top-28 left-1/2 -translate-x-1/2 w-24 h-4 bg-black/20 blur-xl rounded-full" />
+      {isInView && <div className="absolute top-28 left-1/2 -translate-x-1/2 w-24 h-4 bg-black/20 blur-xl rounded-full" />}
       
       {/* Content */}
-      {showContent && (
-        <div className="mt-12 text-justify">
+      {showContent && isInView && (
+        <motion.div 
+          className="mt-12 text-justify"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={baseViewport}
+        >
           <h3 className="font-display font-semibold text-foreground text-sm mb-4 leading-tight text-left">
             {feature.title}
           </h3>
           <p className="text-muted-foreground text-xs leading-relaxed w-full">
             {feature.description}
           </p>
-        </div>
+        </motion.div>
       )}
     </div>
   );

@@ -56,16 +56,16 @@ const FeatureCard = ({
       variant="dark"
       className={`
         absolute
-        rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)]
+        rounded-full shadow-lg shadow-black/20
         flex items-center ${isMobile ? 'gap-1.5' : 'gap-3'}
         ${isMobile ? "p-1 pr-2.5" : "py-2 px-3 pr-6"}
         min-w-max
         overflow-hidden
       `}
     >
-      <div className={`flex-shrink-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.8)] ${isMobile ? 'w-5 h-5' : 'w-10 h-10'
+      <div className={`flex-shrink-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-md shadow-green-400/40 ${isMobile ? 'w-5 h-5' : 'w-10 h-10'
         }`}>
-        <Icon className={`text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)] ${isMobile ? 'w-2.5 h-2.5' : 'w-5 h-5'}`} />
+        <Icon className={`text-white ${isMobile ? 'w-2.5 h-2.5' : 'w-5 h-5'}`} />
       </div>
       <div className="flex flex-col items-start justify-center text-left">
         <h3 className="card-title">

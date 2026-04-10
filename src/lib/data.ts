@@ -19,18 +19,3 @@ export const teamMembers: TeamMember[] = [
   },
 ];
 
-export const pricingPlans = [
-  {
-    title: "Basic",
-    price: "Free",
-    description: "Perfect for getting started with AI networking.",
-    features: ["50 Connections/mo", "Basic AI Insights", "Standard Support"],
-  },
-  {
-    title: "Pro",
-    price: "$29/mo",
-    description: "Advanced tools for active networkers.",
-    features: ["Unlimited Connections", "Advanced AI Predictor", "Priority Support", "Custom Branding"],
-    isPopular: true,
-  },
-];

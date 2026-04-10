@@ -3,8 +3,9 @@ import problemImage from "@/assets/images/problem.png";
 import AnimatedImage from "@/components/ui/animated-image";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { fadeUp, baseViewport } from "@/lib/animations";
+import { fadeUp, staggerContainer, baseViewport } from "@/lib/animations";
 import BackgroundParticles from "@/components/ui/background-particles";
+import { ScrollCard } from "@/components/ui/scroll-card";
 
 const ProblemSection = () => {
   const problems = [
@@ -28,8 +29,8 @@ const ProblemSection = () => {
       {/* Section Header */}
       <motion.div 
         variants={fadeUp}
-        initial="initial"
-        whileInView="animate"
+        initial="hidden"
+        whileInView="visible"
         viewport={baseViewport}
         className="text-center mb-16"
       >
@@ -55,16 +56,11 @@ const ProblemSection = () => {
       </div>
 
       {/* Problem Cards */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div 
+        className="grid md:grid-cols-3 gap-6"
+      >
         {problems.map((problem, index) => (
-          <motion.div
-            key={problem.title}
-            variants={fadeUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={baseViewport}
-            transition={{ delay: index * 0.1 }}
-          >
+          <ScrollCard key={problem.title}>
             <GlassCard className="p-6 h-full text-justify">
               <h3 className="headline-md text-emerald-400 mb-4 text-left">
                 {problem.title}
@@ -73,7 +69,7 @@ const ProblemSection = () => {
                 {problem.description}
               </p>
             </GlassCard>
-          </motion.div>
+          </ScrollCard>
         ))}
       </div>
     </SectionWrapper>
