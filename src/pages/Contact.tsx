@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { fadeUp, baseViewport, staggerContainer } from "@/lib/animations";
 import { BaseSection } from "@/components/layout/base-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Mail, Globe, MapPin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -41,7 +41,7 @@ const Contact = () => {
     if (!formRef.current) return;
 
     setIsSending(true);
-    
+
     try {
       await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -49,7 +49,7 @@ const Contact = () => {
         formRef.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      
+
       setShowSuccess(true);
       formRef.current.reset();
       setTimeout(() => setShowSuccess(false), 5000);
@@ -75,38 +75,33 @@ const Contact = () => {
       {/* Main Content Grid */}
       <BaseSection id="contact-main" className="py-12" backgroundVariant="none">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left Column - Contact Form */}
-          <motion.div
-            variants={fadeUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={baseViewport}
-          >
+          <ScrollCard animation="fadeUp">
             <div className="p-10 lg:p-12 h-full bg-[#051611] border border-white/10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
               {/* Subtle accent glow in corner */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-accent/10 blur-[100px] rounded-full" />
-              
+
               <h2 className="headline-md !text-white !text-3xl mb-10 border-b border-white/10 pb-6 font-bold relative z-10">Send Us a Message</h2>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Full Name</label>
-                    <input 
+                    <input
                       required
-                      name="fullName" 
-                      type="text" 
-                      placeholder="e.g. Nagarajan" 
+                      name="fullName"
+                      type="text"
+                      placeholder="e.g. Ram"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
                     <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Email Address</label>
-                    <input 
+                    <input
                       required
-                      name="userEmail" 
-                      type="email" 
-                      placeholder="contact@fuzionest.com" 
+                      name="userEmail"
+                      type="email"
+                      placeholder="Ram@gmail.com"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
@@ -115,17 +110,17 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Company</label>
-                    <input 
-                      name="company" 
-                      type="text" 
-                      placeholder="Fuzionest Solutions" 
+                    <input
+                      name="company"
+                      type="text"
+                      placeholder="Ram Solutions"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none"
                     />
                   </div>
                   <div className="space-y-3">
                     <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Inquiry Type</label>
                     <div className="relative">
-                      <select 
+                      <select
                         name="subject"
                         className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white focus:outline-none focus:border-accent focus:bg-white/10 transition-all appearance-none outline-none cursor-pointer"
                       >
@@ -142,23 +137,23 @@ const Contact = () => {
 
                 <div className="space-y-3">
                   <label className="text-sm font-bold uppercase tracking-[0.15em] text-accent pl-1">Your Message</label>
-                  <textarea 
+                  <textarea
                     required
-                    name="message" 
-                    rows={6} 
-                    placeholder="Tell us about your networking goals..." 
+                    name="message"
+                    rows={6}
+                    placeholder="Tell us about your networking goals..."
                     className="w-full bg-white/5 border border-white/5 rounded-2xl p-5 text-white placeholder:text-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all outline-none resize-none"
                   />
                 </div>
 
-                <input 
-                  type="hidden" 
-                  name="submittedAt" 
-                  value={new Date().toLocaleString()} 
+                <input
+                  type="hidden"
+                  name="submittedAt"
+                  value={new Date().toLocaleString()}
                 />
 
                 <div className="pt-4">
-                  <Button 
+                  <Button
                     disabled={isSending}
                     type="submit"
                     className="w-full md:w-auto px-12 py-8 text-xl rounded-full bg-amber-500 hover:bg-amber-600 border-none shadow-xl shadow-amber-500/20 group transition-all hover:scale-105 active:scale-95"
@@ -173,7 +168,7 @@ const Contact = () => {
                 </div>
 
                 {showSuccess && (
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-accent font-bold mt-4 text-center"
@@ -183,47 +178,60 @@ const Contact = () => {
                 )}
               </form>
             </div>
-          </motion.div>
+          </ScrollCard>
 
           {/* Right Column - Contact Cards */}
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={baseViewport}
+          <StaggerGroup
             className="space-y-6"
           >
-            {contactDetails.map((detail, index) => (
-              <motion.div key={detail.title} variants={fadeUp}>
-                <GlassCard className="p-8 flex items-start gap-6 border-accent/10 hover:border-accent/40 group transition-all duration-500" variant="primary">
-                  <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <detail.icon className="text-accent w-7 h-7" />
-                  </div>
-                  <div className="text-left">
-                    <h3 className="headline-md !text-lg !mb-1 text-gray-900">{detail.title}</h3>
-                    {detail.link ? (
-                      <a href={detail.link} target="_blank" rel="noopener noreferrer" className="text-accent font-bold text-xl hover:underline block mb-2">
-                        {detail.detail}
-                      </a>
-                    ) : (
+            {contactDetails.map((detail) => (
+              <ScrollCard key={detail.title} animation="slideRight">
+                {detail.link ? (
+                  <a 
+                    href={detail.link} 
+                    target={detail.link.startsWith('http') ? "_blank" : undefined} 
+                    rel={detail.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                    className="block group"
+                  >
+                    <GlassCard className="p-8 flex items-start gap-6 border-accent/10 group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-500 cursor-pointer h-full" variant="primary">
+                      <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                        <detail.icon className="text-accent w-7 h-7" />
+                      </div>
+                      <div className="text-left">
+                        <h3 className="headline-md !text-lg !mb-1 text-gray-900">{detail.title}</h3>
+                        <span className="text-accent font-bold text-xl block mb-2 group-hover:underline">
+                          {detail.detail}
+                        </span>
+                        <p className="body-md !text-sm text-gray-600 leading-relaxed">{detail.description}</p>
+                      </div>
+                    </GlassCard>
+                  </a>
+                ) : (
+                  <GlassCard className="p-8 flex items-start gap-6 border-accent/10 transition-all duration-500" variant="primary">
+                    <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <detail.icon className="text-accent w-7 h-7" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="headline-md !text-lg !mb-1 text-gray-900">{detail.title}</h3>
                       <span className="text-accent font-bold text-xl block mb-2">{detail.detail}</span>
-                    )}
-                    <p className="body-md !text-sm text-gray-600 leading-relaxed">{detail.description}</p>
-                  </div>
-                </GlassCard>
-              </motion.div>
+                      <p className="body-md !text-sm text-gray-600 leading-relaxed">{detail.description}</p>
+                    </div>
+                  </GlassCard>
+                )}
+              </ScrollCard>
             ))}
 
+
             {/* Fuzionest Branding Social / CTA */}
-            <motion.div variants={fadeUp} className="pt-8">
+            <ScrollCard animation="fadeUp" className="pt-8">
               <div className="bg-gradient-to-br from-emerald-950/80 to-emerald-900/80 p-10 rounded-[2rem] border border-accent/20 backdrop-blur-xl shadow-2xl">
                 <h4 className="headline-md !text-white !text-2xl mb-4">Why Fuzionest?</h4>
                 <p className="text-white/80 text-base leading-relaxed">
                   We specialize in building deep-tech solutions that transform how people connect. WayTree is a testament to our commitment to AI-driven human interaction and relationship intelligence.
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </ScrollCard>
+          </StaggerGroup>
 
         </div>
       </BaseSection>
@@ -232,3 +240,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

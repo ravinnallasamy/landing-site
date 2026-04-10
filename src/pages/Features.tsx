@@ -1,13 +1,12 @@
-import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/glass-card";
 import { CubeCard } from "@/components/ui/cube-3d";
-import { fadeUp, baseViewport } from "@/lib/animations";
 import { BaseSection } from "@/components/layout/base-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import featureAi from "@/assets/images/feature-ai.jpg";
 import featureCapture from "@/assets/images/feature-capture.jpg";
 import featureEvents from "@/assets/images/feature-events.jpg";
 import featureNetworking from "@/assets/images/feature-networking.jpg";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const sections = [
   {
@@ -45,23 +44,21 @@ const Features = () => (
       className="mb-24"
     />
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
-      {sections.map((s, i) => (
-        <motion.div
+    <StaggerGroup
+      className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10"
+    >
+      {sections.map((s) => (
+        <ScrollCard
           key={s.tag}
-          variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={baseViewport}
-          transition={{ delay: i * 0.1 }}
+          animation="fadeUp"
           whileHover={{ y: -10, transition: { duration: 0.3 } }}
           className="h-full"
         >
-          <GlassCard className="p-10 h-full flex flex-col justify-between group/card transition-all duration-500 hover:scale-[1.02] border-white/10" variant="dark">
+          <GlassCard className="p-10 h-full flex flex-col justify-between group/card transition-all duration-500 hover:scale-[1.02] bg-white/50 backdrop-blur-xl border-gray-100 shadow-xl" variant="primary">
             <div>
               <span className="text-accent text-xs font-mono tracking-[0.2em] uppercase mb-4 block font-bold">{s.tag}</span>
-              <h2 className="headline-md !text-white mb-4 transition-colors group-hover/card:text-accent">{s.title}</h2>
-              <p className="body-md !text-white/80 mb-8 text-left">{s.description}</p>
+              <h2 className="headline-md !text-gray-900 mb-4 transition-colors group-hover/card:text-accent">{s.title}</h2>
+              <p className="body-md !text-gray-600 mb-8 text-left">{s.description}</p>
             </div>
             
             <div className="relative py-12 flex items-center justify-center">
@@ -70,10 +67,12 @@ const Features = () => (
               </div>
             </div>
           </GlassCard>
-        </motion.div>
+        </ScrollCard>
       ))}
-    </div>
+    </StaggerGroup>
   </BaseSection>
 );
 
 export default Features;
+
+

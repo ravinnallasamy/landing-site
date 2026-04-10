@@ -3,6 +3,7 @@ import { TeamCard } from "@/components/ui/team-card";
 import { BaseSection } from "@/components/layout/base-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { DetailedCard } from "@/components/ui/detailed-card";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const visionCards = [
   {
@@ -48,63 +49,75 @@ const About = () => (
 
       {/* Vision Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start py-12 border-b border-gray-100">
-        <SectionHeading
-          align="left"
-          tag="OUR VISION"
-          title={<>Build relationships that last, <br/> <span className="gradient-text">not just contacts that collect dust.</span></>}
-          description={
-            <div className="space-y-4">
-              <p className="text-left font-bold text-amber-600 text-xl">
-                Your network should work for you, not against you.
-              </p>
-              <p className="text-left">
-                Imagine never forgetting a conversation. Never losing touch with valuable connections. Never missing an opportunity because you forgot to follow up.
-              </p>
-              <p className="text-left">
-                WayTree builds the future of relationship memory - an AI-powered system that remembers everything, understands connections, and helps you nurture the relationships that matter most.
-              </p>
-            </div>
-          }
-          className="mb-0"
-        />
+        <ScrollCard animation="slideLeft">
+          <SectionHeading
+            align="left"
+            tag="OUR VISION"
+            title={<>Build relationships that last, <br/> <span className="gradient-text">not just contacts that collect dust.</span></>}
+            description={
+              <div className="space-y-4">
+                <p className="text-left font-bold text-amber-600 text-xl">
+                  Your network should work for you, not against you.
+                </p>
+                <p className="text-left">
+                  Imagine never forgetting a conversation. Never losing touch with valuable connections. Never missing an opportunity because you forgot to follow up.
+                </p>
+                <p className="text-left">
+                  WayTree builds the future of relationship memory - an AI-powered system that remembers everything, understands connections, and helps you nurture the relationships that matter most.
+                </p>
+              </div>
+            }
+            className="mb-0"
+          />
+        </ScrollCard>
 
-        <div className="space-y-6">
+        <StaggerGroup className="space-y-6">
           {visionCards.map((card, index) => (
-            <DetailedCard key={card.label || card.title} {...card} index={index} />
+            <ScrollCard key={card.label || card.title} animation="fadeUp">
+              <DetailedCard {...card} index={index} />
+            </ScrollCard>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
 
       <div className="py-24 bg-gray-50/50 -mx-4 md:-mx-8 lg:-mx-12 px-4 md:px-8 lg:px-12">
-        <SectionHeading
-          title={<>Why Choose <span className="gradient-text">WayTree</span></>}
-          description="Experience the difference with our AI-powered approach to networking."
-          className="mb-20"
-        />
+        <ScrollCard animation="fadeUp">
+          <SectionHeading
+            title={<>Why Choose <span className="gradient-text">WayTree</span></>}
+            description="Experience the difference with our AI-powered approach to networking."
+            className="mb-20"
+          />
+        </ScrollCard>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {whyUsCards.map((card, index) => (
-              <DetailedCard key={card.label || card.title} {...card} index={index} />
+              <ScrollCard key={card.label || card.title} animation="fadeUp">
+                <DetailedCard {...card} index={index} />
+              </ScrollCard>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
 
       {/* Team Section */}
       <div className="py-24">
-        <SectionHeading
-          title={<>The minds behind <span className="gradient-text">WayTree</span>.</>}
-          description="Built by people who understand real-world systems, not just code."
-          className="mb-16"
-        />
+        <ScrollCard animation="fadeUp">
+          <SectionHeading
+            title={<>The minds behind <span className="gradient-text">WayTree</span>.</>}
+            description="Built by people who understand real-world systems, not just code."
+            className="mb-16"
+          />
+        </ScrollCard>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <StaggerGroup className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {teamMembers.map((member, index) => (
-              <TeamCard key={member.name} member={member} index={index} />
+              <ScrollCard key={member.name} animation="scaleIn">
+                <TeamCard member={member} index={index} />
+              </ScrollCard>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </BaseSection>
@@ -112,3 +125,4 @@ const About = () => (
 );
 
 export default About;
+

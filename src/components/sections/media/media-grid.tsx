@@ -1,11 +1,9 @@
 import mediaImage from "@/assets/images/media.png";
 import AnimatedImage from "@/components/ui/animated-image";
-import { motion } from "framer-motion";
-import { GlassCard, MotionGlassCard } from "@/components/ui/glass-card";
+import { GlassCard } from "@/components/ui/glass-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { BaseSection } from "@/components/layout/base-section";
-import { fadeUp, baseViewport, hoverScale, sectionReveal, staggerContainer } from "@/lib/animations";
-import { ScrollCard } from "@/components/ui/scroll-card";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const MediaSection = () => {
   const features = [
@@ -34,7 +32,7 @@ const MediaSection = () => {
       <SectionHeading
         title={
           <>
-            Your <span className="text-emerald-400">Media</span> Hub.
+            Your <span className="gradient-text">Media</span> Hub.
           </>
         }
         description="Every photo, every voice note, every interaction — all in one place."
@@ -43,11 +41,8 @@ const MediaSection = () => {
       {/* Main Content - Image and Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 mb-20">
         {/* Left side - Media Image with Cinematic high-fidelity animation */}
-        <motion.div
-          variants={sectionReveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={baseViewport}
+        <ScrollCard
+          animation="fadeUp"
           className="relative order-2 lg:order-1"
         >
           <div className="max-w-xl mx-auto lg:mx-0 aspect-[3/4]">
@@ -59,26 +54,26 @@ const MediaSection = () => {
               priority={true}
             />
           </div>
-        </motion.div>
+        </ScrollCard>
 
         {/* Right side - Features list */}
-        <div 
+        <StaggerGroup 
           className="space-y-6 order-1 lg:order-2"
         >
-          {features.map((feature, index) => (
-            <ScrollCard key={feature.title}>
-              <GlassCard className="p-8 text-justify bg-black/40 border-white/10" variant="dark">
-                <h3 className="headline-md mb-4 text-left text-white">
+          {features.map((feature) => (
+            <ScrollCard key={feature.title} animation="slideRight">
+              <GlassCard className="p-8 text-justify" variant="primary">
+                <h3 className="headline-md mb-4 text-left">
                   {feature.title}
                 </h3>
-                <p className="body-md text-white/80">
+                <p className="body-md">
                   {feature.description}
                 </p>
               </GlassCard>
             </ScrollCard>
           ))}
           
-          <ScrollCard>
+          <ScrollCard animation="fadeUp">
             <GlassCard
               variant="primary"
               className="p-8"
@@ -91,15 +86,15 @@ const MediaSection = () => {
               </p>
             </GlassCard>
           </ScrollCard>
-        </div>
+        </StaggerGroup>
       </div>
 
       {/* Bottom Stats Grid */}
-      <div 
+      <StaggerGroup 
         className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10"
       >
-        {stats.map((stat, index) => (
-          <ScrollCard key={stat.label}>
+        {stats.map((stat) => (
+          <ScrollCard key={stat.label} animation="scaleIn">
             <GlassCard className="text-center p-8" variant="primary">
               <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
               <div className="text-muted-foreground font-semibold uppercase tracking-wider text-sm">
@@ -108,9 +103,12 @@ const MediaSection = () => {
             </GlassCard>
           </ScrollCard>
         ))}
-      </div>
+      </StaggerGroup>
     </BaseSection>
   );
 };
 
 export default MediaSection;
+
+
+

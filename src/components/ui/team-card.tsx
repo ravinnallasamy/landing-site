@@ -26,10 +26,10 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
       viewport={baseViewport}
       transition={{ delay: index * 0.15 }}
       {...hoverScale}
-      variant="dark"
-      className={cn("overflow-hidden p-0 h-full group", className)}
+      variant="primary"
+      className={cn("overflow-hidden p-0 h-full group bg-white/50 backdrop-blur-xl border-gray-100 shadow-xl", className)}
     >
-      {/* Image Section */}
+      {/* Image Section - Maintained dark overlay for text readability over photo */}
       <div className={cn(
         "relative overflow-hidden bg-gradient-to-t from-black/80 via-black/40 to-transparent max-h-[384px]",
       )}>
@@ -60,9 +60,9 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
         </div>
       </div>
 
-      {/* Content Section */}
+      {/* Content Section - Updated to dark text for light background */}
       <div className="p-8">
-        <p className="text-white/90 leading-relaxed mb-8 text-left text-lg font-medium">
+        <p className="text-gray-700 leading-relaxed mb-8 text-left text-lg font-medium">
           {member.description}
         </p>
 
@@ -71,7 +71,7 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
           {member.focusAreas.map((area) => (
             <span
               key={area}
-              className="bg-accent/10 border border-accent/40 rounded-full px-4 py-1.5 text-xs text-accent font-bold tracking-wide uppercase"
+              className="bg-accent/5 border border-accent/20 rounded-full px-4 py-1.5 text-xs text-accent font-bold tracking-wide uppercase"
             >
               {area}
             </span>
@@ -81,3 +81,4 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
     </MotionGlassCard>
   );
 };
+

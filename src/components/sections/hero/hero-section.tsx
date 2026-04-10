@@ -1,27 +1,22 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { fadeUp, scaleIn, textReveal, paragraphFade, baseViewport, staggerContainer, hoverScale } from "@/lib/animations";
+import { hoverScale } from "@/lib/animations";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import FeatureCard from "@/components/ui/feature-card";
 import {
   MessageSquare,
-  Users,
   Bell,
-  Search,
   Calendar,
-  Share2,
+  Users,
+  Search,
   Brain,
-  Zap,
-  Shield,
-  TrendingUp
 } from "lucide-react";
 import backgroundImage from "@/assets/images/background.png";
 import heroMobile from "@/assets/images/hero-mobile.png";
-import { GlassCard, MotionGlassCard } from "@/components/ui/glass-card";
 import { NeuralNetwork } from "./neural-network";
 import { NeuralBackground } from "@/components/ui/neural-background";
 import { AppDownloadButton } from "@/components/ui/app-download-button";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -78,13 +73,7 @@ const HeroSection = () => {
       <NeuralBackground />
 
       <div className="relative z-10 container mx-auto max-w-6xl px-4 min-h-screen flex flex-col items-center justify-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={baseViewport}
-          className="text-center max-w-4xl"
-        >
+        <ScrollCard animation="fadeUp" className="text-center max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 shadow-lg backdrop-blur-md">
             <div className="w-2 h-2 bg-green-400 rounded-full" />
             <span className="text-sm font-medium text-white/90">
@@ -92,9 +81,11 @@ const HeroSection = () => {
             </span>
           </div>
 
-          <motion.h1 variants={textReveal} className="headline-xl gradient-text text-glow-accent !mb-4">
-            Stop Forgetting People
-          </motion.h1>
+          <ScrollCard animation="scaleIn">
+            <h1 className="headline-xl gradient-text text-glow-accent !mb-4">
+              Stop Forgetting People
+            </h1>
+          </ScrollCard>
 
           <h2 className="headline-md text-white/90 !mb-4">
             Your Memory Fails. WayTree Doesn't.
@@ -104,18 +95,20 @@ const HeroSection = () => {
             WayTree captures conversations, organizes your network, and tells you exactly who to follow up with.
           </p>
 
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={baseViewport} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <AppDownloadButton />
+          <StaggerGroup className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <ScrollCard animation="fadeUp">
+              <AppDownloadButton />
+            </ScrollCard>
             
             <Link to="/how-it-works">
-              <motion.div variants={fadeUp} {...hoverScale}>
+              <ScrollCard animation="fadeUp" {...hoverScale}>
                 <Button variant="outline" size="lg" className="rounded-full shadow-lg">
                   Watch Demo
                 </Button>
-              </motion.div>
+              </ScrollCard>
             </Link>
-          </motion.div>
-        </motion.div>
+          </StaggerGroup>
+        </ScrollCard>
       </div>
 
       <div className="relative z-20 w-full overflow-hidden">
@@ -141,3 +134,4 @@ const HeroSection = () => {
   );
 };
 export default HeroSection;
+

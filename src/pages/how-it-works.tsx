@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { fadeUp, baseViewport } from "@/lib/animations";
 import workflowImage from "@/assets/images/workflow.png";
 import AnimatedImage from "@/components/ui/animated-image";
 import { Button } from "@/components/ui/button";
 import { BaseSection } from "@/components/layout/base-section";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { ScrollCard, StaggerGroup } from "@/components/ui/scroll-card";
 
 const steps = [
   {
@@ -44,12 +44,7 @@ const HowItWorks = () => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pb-24 border-b border-gray-100">
         {/* Left side - Visual Representation (Centered) */}
         <div className="relative">
-          <motion.div
-            variants={fadeUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
+          <ScrollCard animation="fadeUp">
             <div className="relative group p-4 lg:p-0">
               <div className="absolute -inset-10 bg-amber-400/10 blur-[120px] rounded-full opacity-50 transition-opacity group-hover:opacity-100" />
               <AnimatedImage
@@ -59,26 +54,25 @@ const HowItWorks = () => (
                 className="rounded-3xl shadow-[0_48px_96px_-24px_rgba(0,0,0,0.15)] relative z-10 w-full hover:scale-[1.02] transition-transform duration-700"
               />
             </div>
-          </motion.div>
+          </ScrollCard>
         </div>
 
         {/* Right side - The Vertical 1234 Steps */}
         <div className="relative pl-0">
-          {/* Vertical connection line - mathematically centered */}
-          <div className="absolute left-[28px] lg:left-[40px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0" />
+          {/* Animated vertical connection line */}
+          <ScrollCard
+            className="absolute left-[28px] lg:left-[40px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-400 via-amber-200 to-transparent opacity-40 z-0 origin-top"
+            animation="growY"
+          />
 
-          <div className="space-y-20">
-            {steps.map((step, index) => (
-              <motion.div
+          <StaggerGroup className="space-y-20">
+            {steps.map((step) => (
+              <ScrollCard
                 key={step.step}
-                variants={fadeUp}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: index * 0.15 }}
+                animation="slideLeft"
                 className="relative flex flex-col items-start group z-10"
               >
-                {/* Step Circle Indicator - Fixed at left-0 */}
+                {/* Step Circle Indicator */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   className="absolute left-0 top-0 w-14 h-14 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-white border-[3px] border-amber-400 shadow-[0_10px_30px_rgba(251,191,36,0.2)] transition-all group-hover:bg-amber-400 group-hover:shadow-[0_15px_40px_rgba(251,191,36,0.3)] z-10"
@@ -97,21 +91,15 @@ const HowItWorks = () => (
                     {step.description}
                   </p>
                 </div>
-              </motion.div>
+              </ScrollCard>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
 
       {/* Narrative Split - Minimal gap to keep continuity */}
       <div className="py-24">
-        <motion.div
-          variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
-        >
+        <ScrollCard animation="fadeUp" className="text-center max-w-3xl mx-auto">
           <SectionHeading
             title="Ready to transform your network?"
             description="Join thousands of professionals using WayTree to build lasting relationships with zero effort."
@@ -135,10 +123,12 @@ const HowItWorks = () => (
               </a>
             </Button>
           </div>
-        </motion.div>
+        </ScrollCard>
       </div>
     </BaseSection>
   </div>
 );
 
 export default HowItWorks;
+
+
