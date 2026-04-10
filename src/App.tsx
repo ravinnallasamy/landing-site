@@ -13,12 +13,12 @@ const CTASection = React.lazy(() => import("@/components/sections/cta/cta-banner
 const AIChatSection = React.lazy(() => import("@/components/sections/ai-chat/chat-ui"));
 
 // Lazy Loaded Pages
-const PrivacyPolicy = React.lazy(() => import("@/pages/PrivacyPolicy"));
-const TermsAndConditions = React.lazy(() => import("@/pages/TermsAndConditions"));
-const FeaturesPage = React.lazy(() => import("@/pages/Features"));
-const HowItWorksPage = React.lazy(() => import("@/pages/HowItWorks"));
-const AboutPage = React.lazy(() => import("@/pages/About"));
-const ContactPage = React.lazy(() => import("@/pages/Contact"));
+const PrivacyPolicy = React.lazy(() => import("@/pages/privacy-policy"));
+const TermsAndConditions = React.lazy(() => import("@/pages/terms-and-conditions"));
+const FeaturesPage = React.lazy(() => import("@/pages/features"));
+const HowItWorksPage = React.lazy(() => import("@/pages/how-it-works"));
+const AboutPage = React.lazy(() => import("@/pages/about"));
+const ContactPage = React.lazy(() => import("@/pages/contact"));
 
 const SectionFallback = () => (
   <div className="w-full h-[50vh] flex items-center justify-center bg-black">
