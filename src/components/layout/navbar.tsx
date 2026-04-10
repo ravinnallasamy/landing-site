@@ -146,7 +146,7 @@ const Navbar = () => {
               {/* Mobile Get Started Button */}
               <div className="pt-4">
                 <AppStoreLink
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-white body-md !text-sm !font-semibold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-white body-md !text-base !font-semibold rounded-2xl transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-amber-500/30 border border-amber-400/60 px-6 py-4 text-center"
                   onClick={() => setOpen(false)}
                 >
                   Get Started
