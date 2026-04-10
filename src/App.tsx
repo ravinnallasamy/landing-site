@@ -13,6 +13,7 @@ import TermsAndConditions from "@/pages/TermsAndConditions";
 import FeaturesPage from "@/pages/Features";
 import HowItWorksPage from "@/pages/HowItWorks";
 import AboutPage from "@/pages/About";
+import ContactPage from "@/pages/Contact";
 import { ScrollHandler } from "@/components/layout/scroll-handler";
 
 import AIChatSection from "@/components/sections/ai-chat/chat-ui";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </Router>

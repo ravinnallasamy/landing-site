@@ -13,6 +13,7 @@ interface AnimatedImageProps extends HTMLAttributes<HTMLImageElement> {
 
 const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "lazy", priority = false, ...props }: AnimatedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Motion values for X and Y rotation
@@ -99,9 +100,11 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
             loading={loading}
             className="w-full h-full object-cover select-none"
             onLoad={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
             style={{ 
-              opacity: isLoaded ? 1 : 0,
-              transform: "translateZ(0px)" // Base Z
+              opacity: isLoaded || hasError ? 1 : 0,
+              transform: "translateZ(0px)",
+              transition: "opacity 0.5s ease-in-out"
             }}
             {...props}
           />
@@ -127,8 +130,9 @@ const AnimatedImage = ({ src, alt, className, variant = "3d-card", loading = "la
         loading={loading}
         className="w-full h-full object-cover rounded-xl"
         onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
         style={{ 
-          opacity: isLoaded ? 1 : 0,
+          opacity: isLoaded || hasError ? 1 : 0,
           transition: "opacity 0.5s ease-in-out" 
         }}
         {...props}

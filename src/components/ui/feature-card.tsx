@@ -1,5 +1,6 @@
 import { motion, useTransform, MotionValue } from "framer-motion";
 import { LucideIcon } from "lucide-react";
+import { MotionGlassCard } from "@/components/ui/glass-card";
 
 interface FeatureCardProps {
   icon: LucideIcon;
@@ -25,23 +26,23 @@ const FeatureCard = ({
 }: FeatureCardProps) => {
   // Since the parent container is fixed at the destination point,
   // we animate from the negative offset (the center of the screen) to 0 (the destination).
-  const x = useTransform(scrollProgress, [0, 0.4], [-targetX, 0]);
-  const y = useTransform(scrollProgress, [0, 0.4], [-targetY, 0]);
+  const x = useTransform(scrollProgress, [0.1, 0.5], [-targetX, 0]);
+  const y = useTransform(scrollProgress, [0.1, 0.5], [-targetY, 0]);
 
   const opacity = useTransform(
     scrollProgress,
-    [0, 0.2],
+    [0.1, 0.3],
     [0, 1]
   );
 
   const scale = useTransform(
     scrollProgress,
-    [0, 0.25, 0.4],
+    [0.1, 0.35, 0.5],
     isMobile ? [0, 1.1, 1] : [0, 1.15, 1]
   );
 
   return (
-    <motion.div
+    <MotionGlassCard
       style={{
         x,
         y,
@@ -52,9 +53,9 @@ const FeatureCard = ({
         translateY: "-50%",
         willChange: "transform, opacity",
       }}
+      variant="dark"
       className={`
         absolute
-        bg-black/60 backdrop-blur-xl border border-white/20
         rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)]
         flex items-center ${isMobile ? 'gap-1.5' : 'gap-3'}
         ${isMobile ? "p-1 pr-2.5" : "py-2 px-3 pr-6"}
@@ -76,7 +77,7 @@ const FeatureCard = ({
           </span>
         )}
       </div>
-    </motion.div>
+    </MotionGlassCard>
   );
 };
 

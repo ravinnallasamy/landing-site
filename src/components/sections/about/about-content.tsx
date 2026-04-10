@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import aboutImage from "@/assets/images/about.png";
 import AnimatedImage from "@/components/ui/animated-image";
-import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { BaseSection } from "@/components/layout/base-section";
 import { fadeUp, baseViewport, hoverScale, sectionReveal } from "@/lib/animations";
-import BackgroundParticles from "@/components/ui/background-particles";
 
 const AboutSection = () => {
   const values = [
@@ -23,27 +23,16 @@ const AboutSection = () => {
   ];
 
   return (
-    <SectionWrapper id="about" className="relative group overflow-hidden">
-      <BackgroundParticles />
-      
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={baseViewport}
-          className="text-center mb-16"
-        >
-          <span className="hook-text">OUR VISION</span>
-          <h1 className="headline-xl !mb-4">
+    <BaseSection id="about" showParticles backgroundVariant="none">
+      <SectionHeading
+        tag="OUR VISION"
+        title={
+          <>
             Why <span className="text-primary-accent">WayTree</span> Exists
-          </h1>
-          <p className="body-lg text-foreground/90 font-bold max-w-3xl mx-auto">
-            We meet hundreds. <span className="text-primary-accent">We remember dozens.</span> We lose thousands in missed opportunities.
-          </p>
-        </motion.div>
-
+          </>
+        }
+        description="We meet hundreds. We remember dozens. We lose thousands in missed opportunities."
+      />
 
       {/* Main Content - Image and Values */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16 relative z-10">
@@ -51,7 +40,7 @@ const AboutSection = () => {
         <motion.div
           variants={sectionReveal}
           initial="initial"
-          whileInView="whileInView"
+          whileInView="animate"
           viewport={baseViewport}
           className="relative"
         >
@@ -136,19 +125,18 @@ const AboutSection = () => {
             transition={{ delay: 0.5 + index * 0.1 }}
             {...hoverScale}
           >
-            <GlassCard className="p-10 text-justify h-full flex flex-col justify-center" variant="primary">
-              <h3 className="headline-md text-left mb-4">
+            <GlassCard className="p-10 text-justify h-full flex flex-col justify-center bg-black/40 border-white/10" variant="dark">
+              <h3 className="headline-md text-left mb-4 text-white">
                 {value.title}
               </h3>
-              <p className="body-md">
+              <p className="body-md text-white/80">
                 {value.description}
               </p>
             </GlassCard>
           </motion.div>
         ))}
-        </div>
       </div>
-    </SectionWrapper>
+    </BaseSection>
   );
 };
 

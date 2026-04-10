@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { MotionGlassCard } from "./glass-card";
 import { fadeUp, baseViewport } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 interface DetailedCardProps {
   title?: string;
@@ -17,40 +18,47 @@ export const DetailedCard = ({
   index,
 }: DetailedCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.6, 
-        delay: index * 0.1 
-      }}
-      viewport={{ once: true }}
+    <MotionGlassCard
+      variants={fadeUp}
+      initial="initial"
+      whileInView="animate"
+      viewport={baseViewport}
+      transition={{ delay: index * 0.1 }}
+      variant={isHighlighted ? "primary" : "dark"}
       whileHover={{ 
-        scale: 1.02, 
-        y: -4,
-        transition: { duration: 0.25 }
+        y: -10, 
+        scale: 1.02,
+        transition: { duration: 0.3 }
       }}
-      className={`
-        rounded-2xl p-6 shadow-lg h-full
-        ${isHighlighted 
-          ? 'bg-green-400 text-black' 
-          : 'bg-gradient-to-br from-[#0B3D2E] to-[#071E16] border border-green-900/30 text-gray-300'
-        }
-      `}
+      className={cn(
+        "p-10 h-full transition-all duration-500 rounded-[2rem] group cursor-pointer",
+        isHighlighted 
+          ? "bg-green-400 text-black border-none shadow-[0_20px_40px_-15px_rgba(74,222,128,0.3)]" 
+          : "bg-black/80 text-white border-white/10 hover:border-accent/40 shadow-2xl"
+      )}
     >
       {label && (
-        <div className="text-xs font-mono tracking-wider uppercase mb-2 opacity-70">
+        <div className={cn(
+          "text-sm font-mono tracking-[0.2em] uppercase mb-6 opacity-60 font-bold",
+          isHighlighted ? "text-black/70" : "text-accent"
+        )}>
           {label}
         </div>
       )}
       {title && (
-        <h3 className="font-display text-lg font-bold mb-2">
+        <h3 className={cn(
+          "font-display text-3xl font-bold mb-6",
+          isHighlighted ? "text-black" : "text-white"
+        )}>
           {title}
         </h3>
       )}
-      <p className="text-sm leading-relaxed text-justify w-full">
+      <p className={cn(
+        "text-lg leading-relaxed text-justify w-full font-medium",
+        isHighlighted ? "text-black/80" : "text-white/80"
+      )}>
         {text}
       </p>
-    </motion.div>
+    </MotionGlassCard>
   );
 };

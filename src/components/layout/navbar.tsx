@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Features", to: "/features" },
   { label: "How It Works", to: "/how-it-works" },
   { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -176,5 +177,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;

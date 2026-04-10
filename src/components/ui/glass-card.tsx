@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { glass } from "@/lib/theme";
+import { motion } from "framer-motion";
 
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "primary" | "dark" | "light";
@@ -26,4 +27,6 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
 
 GlassCard.displayName = "GlassCard";
 
-export { GlassCard };
+const MotionGlassCard = motion(GlassCard);
+
+export { GlassCard, MotionGlassCard };

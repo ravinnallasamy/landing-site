@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ctaImage from "@/assets/images/cta.png";
 import AnimatedImage from "@/components/ui/animated-image";
 import { motion } from "framer-motion";
+import { GlassCard, MotionGlassCard } from "@/components/ui/glass-card";
+import { fadeUp, scaleIn, hoverScale, baseViewport } from "@/lib/animations";
 
 const CtaSection = () => {
   const navigate = useNavigate();
@@ -30,20 +32,18 @@ const CtaSection = () => {
         <div className="absolute inset-0 bg-black/50" />
       </div>
       
-      <div className="container mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center max-w-4xl mx-auto backdrop-blur-md bg-black/30 p-10 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl"
+      <div className="container mx-auto relative z-10 px-6">
+        <MotionGlassCard
+          variants={scaleIn}
+          initial="initial"
+          whileInView="animate"
+          viewport={baseViewport}
+          variant="dark"
+          className="text-center max-w-4xl mx-auto p-12 md:p-20 rounded-[2.5rem]"
         >
           {/* Main CTA Content */}
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            variants={fadeUp}
             className="headline-lg"
           >
             Your Memory Is Unreliable.
@@ -56,13 +56,7 @@ const CtaSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
-          >
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button
               asChild
               variant="primary"
@@ -73,17 +67,13 @@ const CtaSection = () => {
                 href="https://play.google.com/store/apps/details?id=com.waytree.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                {...hoverScale}
               >
                 Get Started Now
               </motion.a>
             </Button>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div {...hoverScale}>
               <Button
                 variant="outline"
                 size="lg"
@@ -93,52 +83,36 @@ const CtaSection = () => {
                 Book A Demo
               </Button>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-center"
-            >
-              <div className="headline-md gradient-text !mb-2">Start Today</div>
-              <div className="body-sm text-foreground/70">Stop losing opportunities</div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-center"
-            >
-              <div className="headline-md gradient-text !mb-2">No Risk</div>
-              <div className="body-sm text-foreground/70">14-day guarantee</div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-center"
-            >
-              <div className="headline-md gradient-text !mb-2">Real Results</div>
-              <div className="body-sm text-foreground/70">Or your money back</div>
-            </motion.div>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Start Today", desc: "Stop losing opportunities" },
+              { title: "No Risk", desc: "14-day guarantee" },
+              { title: "Real Results", desc: "Or your money back" }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                custom={index}
+                {...hoverScale}
+                className="text-center"
+              >
+                <div className="headline-md gradient-text !mb-2">{item.title}</div>
+                <div className="body-sm text-foreground/70">{item.desc}</div>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Additional Trust Text */}
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
+            variants={fadeUp}
             className="body-sm text-foreground/60 !mt-12"
           >
             ✓ Enterprise-grade security • ✓ GDPR compliant • ✓ Cancel anytime
           </motion.p>
-        </motion.div>
+        </MotionGlassCard>
       </div>
     </section>
   );

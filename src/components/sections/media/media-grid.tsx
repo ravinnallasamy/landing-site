@@ -1,10 +1,10 @@
 import mediaImage from "@/assets/images/media.png";
 import AnimatedImage from "@/components/ui/animated-image";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "@/components/layout/section-wrapper";
-import { GlassCard } from "@/components/ui/glass-card";
+import { GlassCard, MotionGlassCard } from "@/components/ui/glass-card";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { BaseSection } from "@/components/layout/base-section";
 import { fadeUp, baseViewport, hoverScale, sectionReveal } from "@/lib/animations";
-import BackgroundParticles from "@/components/ui/background-particles";
 
 const MediaSection = () => {
   const features = [
@@ -29,26 +29,15 @@ const MediaSection = () => {
   ];
 
   return (
-    <SectionWrapper id="media" className="relative group overflow-hidden">
-      <BackgroundParticles />
-      
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          variants={fadeUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={baseViewport}
-          className="text-center mb-16"
-        >
-          <h2 className="headline-lg">
-            Never Lose Important Media
-          </h2>
-          <p className="body-lg max-w-2xl mx-auto font-bold">
-            All your networking content in one place. Smart, searchable, and ready to share.
-          </p>
-        </motion.div>
-
+    <BaseSection id="media" showParticles backgroundVariant="none">
+      <SectionHeading
+        title={
+          <>
+            Your <span className="text-emerald-400">Media</span> Hub.
+          </>
+        }
+        description="Every photo, every voice note, every interaction — all in one place."
+      />
 
       {/* Main Content - Image and Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 mb-20">
@@ -56,16 +45,16 @@ const MediaSection = () => {
         <motion.div
           variants={sectionReveal}
           initial="initial"
-          whileInView="whileInView"
+          whileInView="animate"
           viewport={baseViewport}
           className="relative order-2 lg:order-1"
         >
-          <div className="max-w-xl mx-auto lg:mx-0">
+          <div className="max-w-xl mx-auto lg:mx-0 aspect-[3/4]">
             <AnimatedImage
               src={mediaImage}
               alt="Media Search Interface"
               variant="cinematic"
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-full h-full"
               priority={true}
             />
           </div>
@@ -83,33 +72,33 @@ const MediaSection = () => {
               transition={{ delay: index * 0.1 }}
               {...hoverScale}
             >
-              <GlassCard className="p-8 text-justify" variant="primary">
-                <h3 className="headline-md mb-4 text-left">
+              <GlassCard className="p-8 text-justify bg-black/40 border-white/10" variant="dark">
+                <h3 className="headline-md mb-4 text-left text-white">
                   {feature.title}
                 </h3>
-                <p className="body-md">
+                <p className="body-md text-white/80">
                   {feature.description}
                 </p>
               </GlassCard>
             </motion.div>
           ))}
           
-          <motion.div
+          <MotionGlassCard
             variants={fadeUp}
             initial="initial"
             whileInView="animate"
             viewport={baseViewport}
-            transition={{ delay: 0.4 }}
+            custom={3}
+            variant="primary"
+            className="p-8"
           >
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/20">
-              <h4 className="font-display font-bold text-emerald-400 text-lg mb-2">
-                Professional Media Library
-              </h4>
-              <p className="text-muted-foreground font-medium leading-relaxed text-justify">
-                Keep all your professional media organized and accessible from anywhere, anytime.
-              </p>
-            </div>
-          </motion.div>
+            <h4 className="font-display font-bold text-emerald-400 text-lg mb-2">
+              Professional Media Library
+            </h4>
+            <p className="text-muted-foreground font-medium leading-relaxed text-justify">
+              Keep all your professional media organized and accessible from anywhere, anytime.
+            </p>
+          </MotionGlassCard>
         </div>
       </div>
 
@@ -133,9 +122,8 @@ const MediaSection = () => {
             </GlassCard>
           </motion.div>
         ))}
-        </div>
       </div>
-    </SectionWrapper>
+    </BaseSection>
   );
 };
 

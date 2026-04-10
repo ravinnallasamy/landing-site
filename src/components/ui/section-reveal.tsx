@@ -10,7 +10,10 @@ interface SectionRevealProps {
 
 const SectionReveal = ({ children, className = "", delay = 0 }: SectionRevealProps) => (
   <motion.div
-    {...sectionReveal}
+    variants={sectionReveal}
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.6, delay, ease: "easeOut" }}
     className={className}
   >
