@@ -56,7 +56,7 @@ const About = () => (
             title={<>Build relationships that last, <span className="gradient-text">not just contacts that collect dust.</span></>}
             description={
               <div className="space-y-4">
-                <p className="body-lg !text-amber-600 font-bold">
+                <p className="body-lg !text-accent !font-bold">
                   Your network should work for you, not against you.
                 </p>
                 <div className="body-md space-y-4">

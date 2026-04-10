@@ -66,7 +66,7 @@ const Navbar = () => {
           className="flex items-center gap-3 group"
         >
           <img src={logo} alt="WayTree" className="h-10 w-10 transition-transform group-hover:scale-105" />
-          <span className={`font-bold text-xl transition-colors ${isDarkArea ? 'text-white' : 'text-gray-900'} group-hover:text-amber-500`}>WayTree</span>
+          <span className={`headline-md !mb-0 !text-xl transition-colors ${isDarkArea ? 'text-white' : 'text-gray-900'} group-hover:text-amber-500`}>WayTree</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -77,7 +77,7 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`font-medium transition-all px-4 py-2 rounded-lg 
+                className={`body-md !text-sm transition-all px-4 py-2 rounded-lg 
                   ${isDarkArea 
                     ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-white bg-white/20' : ''}`
                     : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-gray-900 bg-white/60 shadow-sm' : ''}`
@@ -94,7 +94,7 @@ const Navbar = () => {
             asChild
             variant="primary"
             size="sm"
-            className="bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full px-5 py-2 transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
+            className="bg-amber-500 hover:bg-amber-600 text-white body-md !text-sm !font-semibold rounded-full px-5 py-2 transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
           >
             <a
               href="https://play.google.com/store/apps/details?id=com.waytree.app"
@@ -139,7 +139,7 @@ const Navbar = () => {
                     key={link.to}
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className={`font-medium transition-all px-4 py-3 rounded-lg block text-left
+                    className={`body-md !text-sm transition-all px-4 py-3 rounded-lg block text-left
                       ${isDarkArea 
                         ? `text-white/80 hover:text-white hover:bg-white/10 ${isActive ? 'text-white bg-white/20' : ''}`
                         : `text-gray-700 hover:text-gray-900 hover:bg-white/50 ${isActive ? 'text-gray-900 bg-white/60 shadow-sm' : ''}`
@@ -157,7 +157,7 @@ const Navbar = () => {
                   asChild
                   variant="primary"
                   size="sm"
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-white body-md !text-sm !font-semibold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 border border-amber-400/50"
                 >
                   <a
                     href="https://play.google.com/store/apps/details?id=com.waytree.app"

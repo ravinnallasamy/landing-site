@@ -58,7 +58,7 @@ const HeroSection = () => {
         <ScrollCard animation="fadeUp" className="text-center max-w-4xl pt-20 lg:pt-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 shadow-lg backdrop-blur-md">
             <div className="w-2 h-2 bg-green-400 rounded-full" />
-            <span className="text-sm font-medium text-white/90">
+            <span className="body-md !text-sm text-white/90">
               Trusted by 100+ professionals
             </span>
           </div>

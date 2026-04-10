@@ -82,7 +82,7 @@ const MediaSection = () => {
               <h4 className="headline-md !text-base md:!text-lg text-emerald-600 mb-2">
                 Professional Media Library
               </h4>
-              <p className="body-md font-medium">
+              <p className="body-md">
                 Keep all your professional media organized and accessible from anywhere, anytime.
               </p>
             </GlassCard>
@@ -97,8 +97,8 @@ const MediaSection = () => {
         {stats.map((stat) => (
           <ScrollCard key={stat.label} animation="scaleIn">
             <GlassCard className="text-center p-6 md:p-8" variant="primary">
-              <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="hook-text !mb-0 text-gray-500">
+              <div className="headline-lg !text-2xl md:!text-3xl gradient-text mb-2">{stat.value}</div>
+              <div className="hook-text !mb-0 text-muted-foreground">
                 {stat.label}
               </div>
             </GlassCard>

@@ -42,10 +42,10 @@ const CubeCard = ({ feature, showContent = true }: CubeCardProps) => {
           whileInView="visible"
           viewport={baseViewport}
         >
-          <h3 className="font-display font-semibold text-foreground text-sm mb-4 leading-tight text-left">
+          <h3 className="headline-md !text-sm mb-4 leading-tight text-left">
             {feature.title}
           </h3>
-          <p className="text-muted-foreground text-xs leading-relaxed w-full">
+          <p className="body-sm w-full">
             {feature.description}
           </p>
         </motion.div>

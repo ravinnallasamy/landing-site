@@ -156,6 +156,7 @@ temp/
 # Build artifacts
 build/
 dist/
+artifacts/
 
 # Storybook build outputs
 storybook-static
@@ -175,12 +176,10 @@ storybook-static
 *~
 
 # MacOS
-.DS_Store
 .AppleDouble
 .LSOverride
 
 # Windows
-Thumbs.db
 ehthumbs.db
 Desktop.ini
 

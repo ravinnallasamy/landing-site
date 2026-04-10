@@ -57,8 +57,8 @@ const Features = () => (
           <GlassCard className="p-8 md:p-10 h-full flex flex-col justify-between group/card transition-all duration-500 hover:scale-[1.02] bg-white/50 backdrop-blur-xl border-gray-100 shadow-xl" variant="primary">
             <div>
               <span className="hook-text !mb-4">{s.tag}</span>
-              <h2 className="headline-md !text-lg md:!text-2xl !text-gray-900 mb-4 transition-colors group-hover/card:text-emerald-500">{s.title}</h2>
-              <p className="body-md !text-gray-600 mb-6 md:mb-8">{s.description}</p>
+              <h2 className="headline-md !text-lg md:!text-2xl !text-foreground mb-4 transition-colors group-hover/card:text-accent">{s.title}</h2>
+              <p className="body-md !text-muted-foreground mb-6 md:mb-8">{s.description}</p>
             </div>
             
             <div className="relative py-6 md:py-10 lg:py-12 flex items-center justify-center overflow-hidden">

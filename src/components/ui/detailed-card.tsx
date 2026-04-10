@@ -39,7 +39,7 @@ export const DetailedCard = ({
     >
       {label && (
         <div className={cn(
-          "text-sm font-mono tracking-[0.2em] uppercase mb-6 opacity-60 font-bold",
+          "hook-text !text-sm !mb-6 opacity-60",
           isHighlighted ? "text-black/70" : "text-accent"
         )}>
           {label}
@@ -47,15 +47,15 @@ export const DetailedCard = ({
       )}
       {title && (
         <h3 className={cn(
-          "font-display text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6",
-          isHighlighted ? "text-black" : "text-gray-900"
+          "headline-lg mb-4 md:mb-6",
+          isHighlighted ? "text-black" : "text-foreground"
         )}>
           {title}
         </h3>
       )}
       <p className={cn(
-        "text-base md:text-lg leading-relaxed text-justify w-full font-medium",
-        isHighlighted ? "text-black/80" : "text-gray-600"
+        "body-lg !text-base md:!text-lg leading-relaxed text-justify w-full",
+        isHighlighted ? "text-black/80" : "text-muted-foreground"
       )}>
         {text}
       </p>

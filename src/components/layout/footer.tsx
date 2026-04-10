@@ -42,7 +42,7 @@ const Footer = () => {
                 className="h-8 md:h-10 w-auto" 
                 whileHover={{ rotate: 10, scale: 1.1 }}
               />
-              <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-white">WayTree</span>
+              <span className="headline-md !mb-0 !text-xl md:!text-2xl tracking-tight text-white">WayTree</span>
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-[280px] text-sm md:text-base">
               AI-powered networking memory system. Built for the modern professional.
@@ -51,13 +51,13 @@ const Footer = () => {
 
           {/* Product Links */}
           <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
-            <h4 className="font-display font-bold text-white text-xs md:text-sm uppercase tracking-widest opacity-80">Product</h4>
+            <h4 className="hook-text !text-xs md:!text-sm !mb-0 opacity-80">Product</h4>
             <div className="flex flex-col gap-3 md:gap-4">
               {["Features", "How it works"].map((item) => (
                 <motion.button 
                   key={item}
                   onClick={() => handleNavigate(`/${item.toLowerCase().replace(/ /g, "-")}`)}
-                  className="text-muted-foreground hover:text-emerald-400 transition-colors text-left font-medium w-fit text-sm md:text-base"
+                  className="body-md !text-sm md:!text-base text-muted-foreground hover:text-emerald-400 transition-colors text-left w-fit"
                   whileHover={{ x: 5 }}
                 >
                   {item}
@@ -68,18 +68,18 @@ const Footer = () => {
 
           {/* Company Links */}
           <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
-            <h4 className="font-display font-bold text-white text-xs md:text-sm uppercase tracking-widest opacity-80">Company</h4>
+            <h4 className="hook-text !text-xs md:!text-sm !mb-0 opacity-80">Company</h4>
             <div className="flex flex-col gap-3 md:gap-4">
               <motion.button 
                 onClick={() => handleNavigate("/about")}
-                className="text-muted-foreground hover:text-emerald-400 transition-colors text-left font-medium w-fit text-sm md:text-base"
+                className="body-md !text-sm md:!text-base text-muted-foreground hover:text-emerald-400 transition-colors text-left w-fit"
                 whileHover={{ x: 5 }}
               >
                 About
               </motion.button>
               <motion.button 
                 onClick={() => handleNavigate("/contact")}
-                className="text-muted-foreground hover:text-emerald-400 transition-colors text-left font-medium w-fit text-sm md:text-base"
+                className="body-md !text-sm md:!text-base text-muted-foreground hover:text-emerald-400 transition-colors text-left w-fit"
                 whileHover={{ x: 5 }}
               >
                 Contact
@@ -89,13 +89,13 @@ const Footer = () => {
 
           {/* Legal Links */}
           <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
-            <h4 className="font-display font-bold text-white text-xs md:text-sm uppercase tracking-widest opacity-80">Legal</h4>
+            <h4 className="hook-text !text-xs md:!text-sm !mb-0 opacity-80">Legal</h4>
             <div className="flex flex-col gap-3 md:gap-4">
               {["Privacy", "Terms"].map((item) => (
                 <motion.button 
                   key={item}
                   onClick={() => handleNavigate(`/${item.toLowerCase()}`)}
-                  className="text-muted-foreground hover:text-emerald-400 transition-colors text-left font-medium w-fit text-sm md:text-base"
+                  className="body-md !text-sm md:!text-base text-muted-foreground hover:text-emerald-400 transition-colors text-left w-fit"
                   whileHover={{ x: 5 }}
                 >
                   {item === "Privacy" ? "Privacy Policy" : "Terms & Conditions"}
@@ -111,7 +111,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
           viewport={{ once: true }}
-          className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border/10 flex justify-center items-center text-xs md:text-sm text-muted-foreground"
+          className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border/10 flex justify-center items-center body-sm"
         >
           <p className="text-center">© {new Date().getFullYear()} WayTree. All rights reserved.</p>
         </motion.div>

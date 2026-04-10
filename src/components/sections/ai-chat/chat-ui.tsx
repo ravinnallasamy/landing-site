@@ -81,7 +81,7 @@ const AiChatSection = () => {
           asChild
           variant="primary"
           size="lg"
-          className="px-6 py-4 md:px-8 md:py-6 text-base md:text-lg rounded-full font-bold shadow-xl shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none"
+          className="px-6 py-4 md:px-8 md:py-6 body-lg !text-base md:!text-lg rounded-full shadow-xl shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none"
         >
           <a
             href="https://play.google.com/store/apps/details?id=com.waytree.app"

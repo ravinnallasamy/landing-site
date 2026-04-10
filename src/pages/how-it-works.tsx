@@ -77,7 +77,7 @@ const HowItWorks = () => (
                   whileHover={{ scale: 1.1 }}
                   className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-white border-[2px] md:border-[3px] border-amber-400 shadow-[0_10px_30px_rgba(251,191,36,0.2)] transition-all group-hover:bg-amber-400 group-hover:shadow-[0_15px_40px_rgba(251,191,36,0.3)] z-10"
                 >
-                  <span className="text-amber-600 font-display font-bold text-base sm:text-lg md:text-2xl lg:text-3xl group-hover:text-white transition-colors">
+                  <span className="text-accent headline-md !text-base sm:!text-lg md:!text-2xl lg:!text-3xl group-hover:text-white transition-colors">
                     {step.step}
                   </span>
                 </motion.div>
@@ -112,7 +112,7 @@ const HowItWorks = () => (
               asChild
               variant="primary"
               size="lg"
-              className="px-8 py-6 md:px-12 md:py-10 text-xl md:text-2xl rounded-full font-bold shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none relative z-10"
+              className="px-8 py-6 md:px-12 md:py-10 body-lg !text-xl md:!text-2xl rounded-full shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] transition-all hover:scale-105 active:scale-95 bg-amber-500 hover:bg-amber-600 border-none relative z-10"
             >
               <a
                 href="https://play.google.com/store/apps/details?id=com.waytree.app"

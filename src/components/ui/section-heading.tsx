@@ -57,7 +57,7 @@ export const SectionHeading = ({
       {description && (
         <motion.div 
           variants={fadeUp}
-          className={cn("body-lg font-medium max-w-2xl", align === "center" && "mx-auto", descriptionClassName)}
+          className={cn("body-lg max-w-2xl", align === "center" && "mx-auto", descriptionClassName)}
         >
           {description}
         </motion.div>

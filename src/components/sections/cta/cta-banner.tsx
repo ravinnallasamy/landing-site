@@ -59,7 +59,7 @@ const CtaSection = () => {
                   asChild
                   variant="primary"
                   size="lg"
-                  className="shadow-soft hover:shadow-strong font-bold text-base md:text-lg w-full sm:w-auto px-8 py-6 rounded-full"
+                  className="shadow-soft hover:shadow-strong body-lg !text-base md:!text-lg w-full sm:w-auto px-8 py-6 rounded-full"
                 >
                   <a
                     href="https://play.google.com/store/apps/details?id=com.waytree.app"
@@ -78,7 +78,7 @@ const CtaSection = () => {
                     variant="outline"
                     size="lg"
                     onClick={handleBookDemo}
-                    className="font-bold text-base md:text-lg w-full sm:w-auto px-8 py-6 rounded-full border-white/20 text-white hover:bg-white/10"
+                    className="body-lg !text-base md:!text-lg w-full sm:w-auto px-8 py-6 rounded-full border-white/20 text-white hover:bg-white/10"
                   >
                     Book A Demo
                   </Button>

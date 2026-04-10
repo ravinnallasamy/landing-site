@@ -37,7 +37,7 @@ export const LegalPage = ({ title, lastUpdated, sections }: LegalPageProps) => {
             description={
               <div className="flex items-center gap-4 text-muted-foreground mt-4">
                 <div className="h-[1px] w-12 bg-primary/30" />
-                <p className="text-sm font-medium text-left">Last Updated: {lastUpdated}</p>
+                <p className="body-sm text-left">Last Updated: {lastUpdated}</p>
               </div>
             }
             className="mb-16"

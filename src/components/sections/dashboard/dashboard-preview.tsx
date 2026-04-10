@@ -32,7 +32,7 @@ const DashboardSection = () => {
             <ScrollCard key={feature.title} animation="slideLeft">
               <GlassCard className="p-6 md:p-8" variant="primary">
                 <div className="headline-md !text-lg md:!text-xl gradient-text mb-2 md:mb-4">{feature.title}</div>
-                <div className="body-md font-medium">{feature.desc}</div>
+                <div className="body-md">{feature.desc}</div>
               </GlassCard>
             </ScrollCard>
           ))}

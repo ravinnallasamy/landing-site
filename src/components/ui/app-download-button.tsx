@@ -29,7 +29,7 @@ export const AppDownloadButton = ({ className }: AppDownloadButtonProps) => {
           <SiGoogleplay className="text-lg text-emerald-600" />
         </div>
       </div>
-      <span className="font-bold">Download App</span>
+      <span className="body-md !font-semibold">Download App</span>
     </motion.a>
   );
 };

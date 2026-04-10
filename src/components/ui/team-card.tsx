@@ -54,7 +54,7 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
           <h3 className="headline-lg !text-xl md:!text-2xl lg:!text-3xl !text-primary-accent mb-1 md:mb-2 drop-shadow-2xl shadow-black">
             {member.name}
           </h3>
-          <p className="text-base md:text-lg lg:text-xl !text-white/90 drop-shadow-2xl shadow-black font-bold text-left tracking-wide">
+          <p className="body-lg !text-base md:!text-lg lg:!text-xl !text-white/90 drop-shadow-2xl shadow-black !font-semibold text-left tracking-wide">
             {member.role}
           </p>
         </div>
@@ -62,7 +62,7 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
 
       {/* Content Section - Updated to dark text for light background */}
       <div className="p-6 md:p-8">
-        <p className="text-gray-700 leading-relaxed mb-6 md:mb-8 text-left text-base md:text-lg font-medium">
+        <p className="body-md !text-base md:!text-lg !text-foreground leading-relaxed mb-6 md:mb-8 text-left">
           {member.description}
         </p>
 
@@ -71,7 +71,7 @@ export const TeamCard = ({ member, index, className }: TeamCardProps) => {
           {member.focusAreas.map((area) => (
             <span
               key={area}
-              className="bg-accent/5 border border-accent/20 rounded-full px-3 py-1 md:px-4 md:py-1.5 text-xs text-accent font-bold tracking-wide uppercase"
+              className="bg-accent/5 border border-accent/20 rounded-full px-3 py-1 md:px-4 md:py-1.5 text-xs text-accent !font-semibold tracking-wide uppercase"
             >
               {area}
             </span>

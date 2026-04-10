@@ -82,11 +82,11 @@ const Contact = () => {
               {/* Subtle accent glow in corner */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 blur-[100px] rounded-full" />
 
-              <h2 className="headline-md !text-white !text-xl sm:!text-2xl md:!text-3xl mb-6 md:mb-8 lg:mb-10 border-b border-white/10 pb-4 md:pb-6 font-bold relative z-10">Send Us a Message</h2>
+              <h2 className="headline-md !text-white mb-6 md:mb-8 lg:mb-10 border-b border-white/10 pb-4 md:pb-6 relative z-10">Send Us a Message</h2>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Full Name</label>
+                    <label className="hook-text !text-xs !mb-0 !tracking-[0.15em] text-emerald-400 pl-1">Full Name</label>
                     <input
                       required
                       name="fullName"
@@ -96,7 +96,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Email Address</label>
+                    <label className="hook-text !text-xs !mb-0 !tracking-[0.15em] text-emerald-400 pl-1">Email Address</label>
                     <input
                       required
                       name="userEmail"
@@ -109,7 +109,7 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Company</label>
+                    <label className="hook-text !text-xs !mb-0 !tracking-[0.15em] text-emerald-400 pl-1">Company</label>
                     <input
                       name="company"
                       type="text"
@@ -118,7 +118,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Inquiry Type</label>
+                    <label className="hook-text !text-xs !mb-0 !tracking-[0.15em] text-emerald-400 pl-1">Inquiry Type</label>
                     <div className="relative">
                       <select
                         name="subject"
@@ -136,7 +136,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 pl-1">Your Message</label>
+                  <label className="hook-text !text-xs !mb-0 !tracking-[0.15em] text-emerald-400 pl-1">Your Message</label>
                   <textarea
                     required
                     name="message"
@@ -156,7 +156,7 @@ const Contact = () => {
                   <Button
                     disabled={isSending}
                     type="submit"
-                    className="w-full md:w-auto px-10 py-6 md:px-12 md:py-8 text-lg md:text-xl rounded-full bg-amber-500 hover:bg-amber-600 border-none shadow-xl shadow-amber-500/20 group transition-all hover:scale-105 active:scale-95"
+                    className="w-full md:w-auto px-10 py-6 md:px-12 md:py-8 body-md !text-lg md:!text-xl rounded-full bg-amber-500 hover:bg-amber-600 border-none shadow-xl shadow-amber-500/20 group transition-all hover:scale-105 active:scale-95"
                   >
                     {isSending ? (
                       <Loader2 className="animate-spin mr-2" />
@@ -171,7 +171,7 @@ const Contact = () => {
                   <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-emerald-400 font-bold mt-4 text-center"
+                    className="text-accent body-md !font-bold mt-4 text-center"
                   >
                     Message sent successfully! We'll get back to you soon.
                   </motion.p>
@@ -199,7 +199,7 @@ const Contact = () => {
                       </div>
                       <div className="text-left">
                         <h3 className="headline-md !text-base md:!text-lg !mb-1 text-gray-900">{detail.title}</h3>
-                        <span className="text-emerald-600 font-bold text-lg md:text-xl block mb-2 group-hover:underline break-all">
+                        <span className="text-accent body-md !text-lg md:!text-xl !font-semibold block mb-2 group-hover:underline break-all">
                           {detail.detail}
                         </span>
                         <p className="body-md !text-xs md:!text-sm text-gray-600 leading-relaxed">{detail.description}</p>
@@ -213,7 +213,7 @@ const Contact = () => {
                     </div>
                     <div className="text-left">
                       <h3 className="headline-md !text-base md:!text-lg !mb-1 text-gray-900">{detail.title}</h3>
-                      <span className="text-emerald-600 font-bold text-lg md:text-xl block mb-2">{detail.detail}</span>
+                      <span className="text-accent body-md !text-lg md:!text-xl !font-semibold block mb-2">{detail.detail}</span>
                       <p className="body-md !text-xs md:!text-sm text-gray-600 leading-relaxed">{detail.description}</p>
                     </div>
                   </GlassCard>
@@ -226,7 +226,7 @@ const Contact = () => {
             <ScrollCard animation="fadeUp" className="pt-6 md:pt-8">
               <div className="bg-gradient-to-br from-[#051611] to-[#0a2a22] p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] border border-emerald-500/20 backdrop-blur-xl shadow-2xl">
                 <h4 className="headline-md !text-white !text-lg sm:!text-xl md:!text-2xl mb-3 md:mb-4">Why Fuzionest?</h4>
-                <p className="text-white/80 text-sm md:text-base lg:text-lg">
+                <p className="body-lg !text-sm md:!text-base lg:!text-lg !text-white/80">
                   We specialize in building deep-tech solutions that transform how people connect. WayTree is a testament to our commitment to AI-driven human interaction and relationship intelligence.
                 </p>
               </div>
